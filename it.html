@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet"
+          href="style.css">
+
+    <title>CASWear</title>
+
+</head>
+
+<body class="bg-color" data-program="IT">
+
+<nav class="navbar">
+
+    <div class="logo-container">
+
+        <img
+            src="logo.png"
+            class="logo-img"
+            alt="CASWear Logo">
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="home.html">
+            HOME
+        </a>
+
+        <a href="apparel.html">
+            APPAREL
+        </a>
+
+        <a href="cart.html">
+            CART
+        </a>
+
+        <a href="orders.html">
+            ORDERS
+        </a>
+
+        <a href="about.html">
+            ABOUT
+        </a>
+
+    </div>
+
+    <div class="nav-right">
+
+        <div class="notification">
+
+            <button
+                class="notif-btn"
+                onclick="toggleNotif()"
+                type="button">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span
+                    class="notif-count"
+                    id="notifCount">
+                    0
+                </span>
+
+            </button>
+
+            <div
+                class="notif-dropdown"
+                id="notifDropdown">
+
+                <h3>
+                    Notifications
+                </h3>
+
+                <div id="notifList">
+
+                    <p class="no-notif">
+                        No notifications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="profile">
+
+            <button
+                class="profile-btn"
+                onclick="toggleProfile()"
+                type="button">
+
+                <img
+                    src="logo.png"
+                    class="profile-img"
+                    id="navProfilePicture"
+                    alt="Profile">
+
+                <span id="userName">
+                    Hi, CASmate!
+                </span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+            <div
+                class="profile-dropdown"
+                id="profileDropdown">
+
+                <a href="profile.html">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    View Profile
+
+                </a>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+                <a href="help.html">
+
+                    <i class="fa-solid fa-circle-question"></i>
+
+                    Help
+
+                </a>
+
+                <a
+                    href="javascript:void(0);"
+                    onclick="logout()">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<div class="it-page">
+
+    <div class="left-panel">
+
+        <img
+            src="IT.png"
+            alt="IT Logo"
+            class="it-logo">
+
+        <div class="categories-box">
+
+            <h2>
+                CATEGORIES
+            </h2>
+
+            <ul>
+
+                <li>
+
+                    <a
+                        href="it.html"
+                        class="active">
+
+                        All
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="ITshirt.html">
+
+                        T-Shirts
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="ITlanyard.html">
+
+                        Lanyard
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <main
+        class="products"
+        id="productsContainer">
+
+        <!-- Existing IT Shirt -->
+        <div
+            class="product-card"
+            onclick="window.location.href='size_ITshirt.html'">
+
+            <img
+                src="IT-shirt.png"
+                alt="IT Shirt">
+
+            <h3>
+                IT Shirt
+            </h3>
+
+            <p>
+                ₱450.00
+            </p>
+
+        </div>
+
+        <!-- Existing IT Lanyard -->
+        <div
+            class="product-card"
+            onclick="window.location.href='lanyard_IT.html'">
+
+            <img
+                src="IT-lanyard.png"
+                alt="IT ID Lanyard">
+
+            <h3>
+                IT ID Lanyard
+            </h3>
+
+            <p>
+                ₱100.00
+            </p>
+
+        </div>
+
+        <!-- Admin-added products are inserted here -->
+
+    </main>
+
+</div>
+
+<script
+    type="module"
+    src="home.js">
+</script>
+
+<script
+    type="module"
+    src="product.js">
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CASWear CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>CASWear - Help</title>
+
+</head>
+
+
+<body class="bg-color">
+
+
+<!-- ==========================================================
+     NAVBAR
+========================================================== -->
+
+<nav class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo-container">
+
+        <img src="logo.png"
+             class="logo-img"
+             alt="CASWear Logo">
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <div class="nav-links">
+
+        <a href="home.html">HOME</a>
+
+        <a href="apparel.html">APPAREL</a>
+
+        <a href="cart.html">CART</a>
+
+        <a href="orders.html">ORDERS</a>
+
+        <a href="about.html">ABOUT</a>
+
+    </div>
+
+
+    <!-- RIGHT NAV -->
+    <div class="nav-right">
+
+
+        <!-- ==================================================
+             NOTIFICATION
+        =================================================== -->
+
+        <div class="notification">
+
+            <button class="notif-btn"
+                    onclick="toggleNotif()"
+                    type="button">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="notif-count"
+                      id="notifCount">
+
+                    0
+
+                </span>
+
+            </button>
+
+
+            <div class="notif-dropdown"
+                 id="notifDropdown">
+
+                <h3>Notifications</h3>
+
+                <div id="notifList">
+
+                    <p class="no-notif">
+
+                        No notifications.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             PROFILE
+        =================================================== -->
+
+        <div class="profile">
+
+            <button class="profile-btn"
+                    onclick="toggleProfile()"
+                    type="button">
+
+                <img src="logo.png"
+                     class="profile-img"
+                     id="navProfilePicture"
+                     alt="Profile">
+
+                <span id="userName">
+
+                    Hi, CASmate!
+
+                </span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+
+            <div class="profile-dropdown"
+                 id="profileDropdown">
+
+
+                <!-- PROFILE -->
+
+                <a href="profile.html">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    View Profile
+
+                </a>
+
+
+                <!-- SETTINGS -->
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+
+                <!-- HELP -->
+
+                <a href="help.html">
+
+                    <i class="fa-solid fa-circle-question"></i>
+
+                    Help
+
+                </a>
+
+
+                <!-- LOGOUT -->
+
+                <a href="javascript:void(0);"
+                   onclick="logout()">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==========================================================
+     HELP PAGE
+========================================================== -->
+
+<main class="help-page">
+
+    <div class="help-container">
+
+
+        <!-- ==================================================
+             HEADER
+        =================================================== -->
+
+        <div class="help-header">
+
+            <h1>
+
+                Help Center
+
+            </h1>
+
+            <p>
+
+                Need help using CASWear?
+                Find answers to common questions below.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             QUICK HELP
+        =================================================== -->
+
+        <section class="help-card">
+
+            <div class="help-card-title">
+
+                <i class="fa-solid fa-circle-info"></i>
+
+                <div>
+
+                    <h2>
+
+                        Getting Started
+
+                    </h2>
+
+                    <p>
+
+                        Learn how to use the CASWear system.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I create an account?
+
+                    </h3>
+
+                    <p>
+
+                        Click <strong>Sign Up</strong> on the
+                        login page. Enter your required
+                        information and create your CASWear
+                        account.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I log in?
+
+                    </h3>
+
+                    <p>
+
+                        Enter your registered email and
+                        password on the login page, then
+                        click <strong>Log In</strong>.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-key"></i>
+
+                <div>
+
+                    <h3>
+
+                        I forgot my password.
+
+                    </h3>
+
+                    <p>
+
+                        On the login page, click
+                        <strong>Forgot Password?</strong>
+                        Enter your registered email and
+                        check your inbox for the password
+                        reset link.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             APPAREL & CART
+        =================================================== -->
+
+        <section class="help-card">
+
+            <div class="help-card-title">
+
+                <i class="fa-solid fa-shirt"></i>
+
+                <div>
+
+                    <h2>
+
+                        Apparel & Cart
+
+                    </h2>
+
+                    <p>
+
+                        Learn how to select and reserve
+                        CASWear apparel.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I view apparel?
+
+                    </h3>
+
+                    <p>
+
+                        Go to the <strong>APPAREL</strong>
+                        page from the navigation bar.
+                        Browse the available CASWear products.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-cart-plus"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I add an item to my cart?
+
+                    </h3>
+
+                    <p>
+
+                        Select the apparel you want,
+                        choose the available options,
+                        and click <strong>Add to Cart</strong>.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-pen-to-square"></i>
+
+                <div>
+
+                    <h3>
+
+                        Can I change my cart?
+
+                    </h3>
+
+                    <p>
+
+                        Yes. Open the
+                        <strong>CART</strong> page to
+                        review your items, change quantities,
+                        or remove items before making a
+                        reservation.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             RESERVATION & PAYMENT
+        =================================================== -->
+
+        <section class="help-card">
+
+            <div class="help-card-title">
+
+                <i class="fa-solid fa-calendar-check"></i>
+
+                <div>
+
+                    <h2>
+
+                        Reservation & Payment
+
+                    </h2>
+
+                    <p>
+
+                        Information about your reservations
+                        and payments.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-calendar-plus"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I make a reservation?
+
+                    </h3>
+
+                    <p>
+
+                        Add your desired apparel to your cart,
+                        review your order, then continue to the
+                        reservation process.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-money-bill"></i>
+
+                <div>
+
+                    <h3>
+
+                        What payment methods are available?
+
+                    </h3>
+
+                    <p>
+
+                        Select the payment method available
+                        in the reservation page, such as
+                        <strong>Cash</strong> or
+                        <strong>GCash</strong>, depending
+                        on the options provided by CASWear.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-receipt"></i>
+
+                <div>
+
+                    <h3>
+
+                        How can I check my order?
+
+                    </h3>
+
+                    <p>
+
+                        Go to the
+                        <strong>ORDERS</strong> page to
+                        view your reservations and their
+                        current status.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-ban"></i>
+
+                <div>
+
+                    <h3>
+
+                        Can I cancel my reservation?
+
+                    </h3>
+
+                    <p>
+
+                        If your reservation is still eligible
+                        for cancellation, open the
+                        <strong>ORDERS</strong> page and use
+                        the available cancellation option.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ACCOUNT & SETTINGS
+        =================================================== -->
+
+        <section class="help-card">
+
+            <div class="help-card-title">
+
+                <i class="fa-solid fa-user-gear"></i>
+
+                <div>
+
+                    <h2>
+
+                        Account & Settings
+
+                    </h2>
+
+                    <p>
+
+                        Manage your account and preferences.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-user"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I edit my profile?
+
+                    </h3>
+
+                    <p>
+
+                        Open the profile menu and select
+                        <strong>View Profile</strong>.
+                        You can manage your available profile
+                        information there.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-lock"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I change my password?
+
+                    </h3>
+
+                    <p>
+
+                        Go to <strong>Settings</strong>,
+                        select <strong>Change Password</strong>,
+                        enter your current password and your
+                        new password, then click
+                        <strong>Update Password</strong>.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="help-item">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <div>
+
+                    <h3>
+
+                        How do I manage notifications?
+
+                    </h3>
+
+                    <p>
+
+                        Go to <strong>Settings</strong> and
+                        turn the notification options on or off
+                        according to your preference.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CONTACT
+        =================================================== -->
+
+        <section class="help-card contact-help">
+
+            <div class="help-card-title">
+
+                <i class="fa-solid fa-headset"></i>
+
+                <div>
+
+                    <h2>
+
+                        Still Need Help?
+
+                    </h2>
+
+                    <p>
+
+                        If you are having problems using
+                        CASWear, contact your system
+                        administrator.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-help-content">
+
+                <i class="fa-solid fa-envelope"></i>
+
+                <div>
+
+                    <h3>
+
+                        CASWear Support
+
+                    </h3>
+
+                    <p>
+
+                        Please provide your name, email,
+                        and a short description of the
+                        problem when requesting assistance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BACK BUTTON
+        =================================================== -->
+
+        <div class="help-back">
+
+            <a href="home.html">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- ==========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script type="module" src="home.js"></script>
+
+
+</body>
+
+</html>

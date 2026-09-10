@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>CASWear</title>
+</head>
+
+<body class="bg-color">
+
+
+
+<nav class="navbar">
+
+    <div class="logo-container">
+        <img src="logo.png" class="logo-img">
+    </div>
+
+    <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="apparel.html">APPAREL</a>
+        <a href="cart.html">CART</a>
+        <a href="orders.html">ORDERS</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+
+    <div class="nav-right">
+
+    
+
+        <div class="notification">
+
+            <button class="notif-btn" onclick="toggleNotif()">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="notif-count" id="notifCount">0</span>
+
+            </button>
+
+            <div class="notif-dropdown" id="notifDropdown">
+
+                <h3>Notifications</h3>
+
+                <div id="notifList">
+
+                    <p class="no-notif">No notifications.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    
+
+    <div class="profile">
+
+    <button class="profile-btn" onclick="toggleProfile()" type="button">
+
+        <img src="logo.png"
+            class="profile-img"
+            id="navProfilePicture"
+            alt="Profile">
+        <span id="userName">Hi, CASmate!</span>
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+   </button>
+
+ <div class="profile-dropdown" id="profileDropdown">
+
+        <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            View Profile
+        </a>
+
+        <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+
+        <a href="help.html">
+            <i class="fa-solid fa-circle-question"></i>
+            Help
+        </a>
+
+        <a href="javascript:void(0);" onclick="logout()">
+    <i class="fa-solid fa-right-from-bracket"></i>
+    Logout
+    </a>
+
+    </div>
+
+</div>
+</div>
+    </div>
+
+</nav>
+ <!-- PAYMENT PAGE -->
+    <main class="payment-page">
+
+        <!-- LEFT SIDE -->
+        <section class="qr-section">
+
+            <div class="qr-card">
+                <img src="qr.jpg" alt="InstaPay QR Code">
+                <p>Transfer fees may apply.</p>
+            </div>
+
+            <h1>Scan this QR to pay online.</h1>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="summary-section">
+
+            <div class="summary-card">
+
+                <h2>Payment Summary</h2>
+
+                <div class="summary-row reference-row">
+            <span>Reference No:</span>
+
+                <input
+                type="text"
+                id="referenceNumber"
+                placeholder=""
+                maxlength="30"
+    >
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="subtotal">0.00</span>
+                </div>
+
+                <div class="summary-row">
+            <span>Processing Fee:</span>
+            <span id="processingFee">₱10.00</span>
+            </div>
+
+                <div class="divider"></div>
+
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="total">0.00</span>
+                </div>
+
+                <div class="divider"></div>
+
+            </div>
+
+
+            <button class="continue-button" onclick="continuePayment()">
+                Continue Paying Online
+            </button>
+
+        </section>
+
+    </main>
+
+
+    <script type="module" src="payment.js"></script>
+    <script type="module" src="home.js"></script>
+</body>
+</html>

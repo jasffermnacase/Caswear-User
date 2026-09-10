@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+    <title>CASWear - My Profile</title>
+
+</head>
+
+
+<body class="bg-color">
+
+
+    <!-- ==========================================================
+         NAVBAR
+    ========================================================== -->
+
+    <nav class="navbar">
+
+
+        <!-- LOGO -->
+
+        <div class="logo-container">
+
+            <img src="logo.png"
+                 class="logo-img"
+                 alt="CASWear Logo">
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <div class="nav-links">
+
+            <a href="home.html">
+                HOME
+            </a>
+
+            <a href="apparel.html">
+                APPAREL
+            </a>
+
+            <a href="cart.html">
+                CART
+            </a>
+
+            <a href="orders.html">
+                ORDERS
+            </a>
+
+            <a href="about.html">
+                ABOUT
+            </a>
+
+        </div>
+
+
+        <!-- RIGHT NAVIGATION -->
+
+        <div class="nav-right">
+
+
+            <!-- ==================================================
+                 NOTIFICATIONS
+            ================================================== -->
+
+            <div class="notification">
+
+                <button class="notif-btn"
+                        onclick="toggleNotif()"
+                        type="button">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span class="notif-count"
+                          id="notifCount">
+                        0
+                    </span>
+
+                </button>
+
+
+                <div class="notif-dropdown"
+                     id="notifDropdown">
+
+                    <h3>
+                        Notifications
+                    </h3>
+
+
+                    <div id="notifList">
+
+                        <div class="no-notif">
+
+                            <i class="fa-regular fa-bell-slash"></i>
+
+                            <p>
+                                No notifications.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ==================================================
+                 PROFILE DROPDOWN
+            ================================================== -->
+
+            <div class="profile">
+
+
+                <button class="profile-btn"
+                        onclick="toggleProfile()"
+                        type="button">
+
+
+                    <img src="logo.png"
+                         class="profile-img"
+                         id="navProfilePicture"
+                         alt="Profile">
+
+
+                    <span id="userName">
+                        Hi, CASmate!
+                    </span>
+
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+
+
+                <div class="profile-dropdown"
+                     id="profileDropdown">
+
+
+                    <a href="profile.html">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        View Profile
+
+                    </a>
+
+
+                    <a href="settings.html">
+
+                        <i class="fa-solid fa-gear"></i>
+
+                        Settings
+
+                    </a>
+
+
+                    <a href="help.html">
+
+                        <i class="fa-solid fa-circle-question"></i>
+
+                        Help
+
+                    </a>
+
+
+                    <a href="javascript:void(0);"
+                       onclick="logout()">
+
+                        <i class="fa-solid fa-right-from-bracket"></i>
+
+                        Logout
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ==========================================================
+         PROFILE PAGE
+    ========================================================== -->
+
+    <main class="profile-page">
+
+
+        <div class="profile-container">
+
+
+            <!-- TITLE -->
+
+            <h1>
+                My Profile
+            </h1>
+
+
+
+            <div class="profile-content">
+
+
+                <!-- ==================================================
+                     PROFILE PICTURE
+                ================================================== -->
+
+                <div class="profile-picture-section">
+
+
+                    <img src="profile.jpg"
+                         alt="Profile Picture"
+                         class="profile-picture"
+                         id="profilePicture">
+
+
+                    <a href="javascript:void(0);"
+                       class="edit-upload"
+                       id="editUpload">
+
+                        Edit/Upload
+
+                    </a>
+
+
+                    <input type="file"
+                           id="profileUpload"
+                           accept="image/*"
+                           style="display: none;">
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     PROFILE INFORMATION
+                ================================================== -->
+
+                <div class="profile-info">
+
+
+                    <!-- FULL NAME -->
+
+                    <h2 id="profileName">
+                        Loading...
+                    </h2>
+
+
+                    <!-- EMAIL -->
+
+                    <p id="profileEmail">
+                        Loading...
+                    </p>
+
+
+                    <!-- CONTACT -->
+
+                    <p id="profilePhone">
+                        Loading...
+                    </p>
+
+
+
+                    <!-- ADDRESS -->
+
+                    <div class="form-group">
+
+                        <label for="profileAddress">
+
+                            My Address
+
+                        </label>
+
+
+                        <input type="text"
+                               id="profileAddress"
+                               placeholder="No address available"
+                               readonly>
+
+                    </div>
+
+                        <button type="button"
+                                id="saveProfileBtn"
+                                style="display: none;">
+
+                            <i class="fa-solid fa-check"></i>
+
+                            Save Changes
+
+                        </button>
+
+
+                        <button type="button"
+                                id="cancelProfileBtn"
+                                style="display: none;">
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                            Cancel
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- ==========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script type="module"
+            src="home.js">
+    </script>
+
+
+</body>
+
+</html>

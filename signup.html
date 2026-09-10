@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign Up</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="signup-page">
+
+    <!-- Background -->
+    <img 
+        src="signupcover.png" 
+        alt="Background" 
+        class="signup-bg"
+    >
+
+    <!-- Left Overlay -->
+    <div class="signup-overlay">
+
+        <div class="signup-form">
+
+            <!-- Title -->
+            <h1 class="signup-title">SIGN UP</h1>
+
+            <!-- Full Name -->
+            <label for="fullname" class="signup-label">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="fullname"
+                class="signup-input"
+                placeholder="Enter your full name"
+            >
+
+            <!-- Email -->
+            <label for="email" class="signup-label">
+                E-mail
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                class="signup-input"
+                placeholder="Enter your email"
+            >
+
+            <!-- Contact Number -->
+            <label for="contact" class="signup-label">
+                Contact Number
+            </label>
+
+            <input
+                type="text"
+                id="contact"
+                class="signup-input"
+                placeholder="Enter your contact number"
+            >
+
+            <!-- Address -->
+            <label for="address" class="signup-label">
+                Address
+            </label>
+
+            <input
+                type="text"
+                id="address"
+                class="signup-input"
+                placeholder="Enter your address"
+            >
+
+            <!-- Password -->
+            <label for="password" class="signup-label">
+                Create Password
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                class="signup-input"
+                placeholder="Create a password"
+            >
+
+            <!-- Sign Up Button -->
+            <button
+                id="signup-btn"
+                class="signup-btn"
+                type="button"
+            >
+                Sign Up
+            </button>
+
+            <!-- Login Link -->
+            <p class="login-text">
+                Already have an account?
+                <a href="login.html" class="login-link">
+                    Log In
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- JavaScript -->
+<script type="module" src="home.js"></script>
+
+</body>
+</html>

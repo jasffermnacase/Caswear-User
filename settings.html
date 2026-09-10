@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CASWear CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>CASWear - Settings</title>
+
+</head>
+
+
+<body class="bg-color">
+
+
+<!-- ==========================================================
+     NAVBAR
+========================================================== -->
+
+<nav class="navbar">
+
+    <!-- LOGO -->
+    <div class="logo-container">
+
+        <img src="logo.png"
+             class="logo-img"
+             alt="CASWear Logo">
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <div class="nav-links">
+
+        <a href="home.html">HOME</a>
+        <a href="apparel.html">APPAREL</a>
+        <a href="cart.html">CART</a>
+        <a href="orders.html">ORDERS</a>
+        <a href="about.html">ABOUT</a>
+
+    </div>
+
+
+    <!-- RIGHT NAV -->
+    <div class="nav-right">
+
+
+        <!-- NOTIFICATION -->
+        <div class="notification">
+
+            <button class="notif-btn"
+                    onclick="toggleNotif()"
+                    type="button">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="notif-count"
+                      id="notifCount">
+                    0
+                </span>
+
+            </button>
+
+
+            <div class="notif-dropdown"
+                 id="notifDropdown">
+
+                <h3>Notifications</h3>
+
+                <div id="notifList">
+
+                    <p class="no-notif">
+                        No notifications.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROFILE -->
+        <div class="profile">
+
+            <button class="profile-btn"
+                    onclick="toggleProfile()"
+                    type="button">
+
+                <img src="logo.png"
+                     class="profile-img"
+                     id="navProfilePicture"
+                     alt="Profile">
+
+                <span id="userName">
+                    Hi, CASmate!
+                </span>
+
+                <i class="fa-solid fa-chevron-down"></i>
+
+            </button>
+
+
+            <div class="profile-dropdown"
+                 id="profileDropdown">
+
+                <a href="profile.html">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    View Profile
+
+                </a>
+
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+
+                <a href="help.html">
+
+                    <i class="fa-solid fa-circle-question"></i>
+
+                    Help
+
+                </a>
+
+
+                <a href="javascript:void(0);"
+                   onclick="logout()">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==========================================================
+     SETTINGS PAGE
+========================================================== -->
+
+<main class="settings-page">
+
+
+    <div class="settings-container">
+
+
+        <!-- PAGE TITLE -->
+
+        <div class="settings-header">
+
+            <h1>Settings</h1>
+
+            <p>
+                Manage your CASWear account and preferences.
+            </p>
+
+        </div>
+
+
+
+        <!-- ==================================================
+             NOTIFICATION SETTINGS
+        =================================================== -->
+
+        <section class="settings-card">
+
+            <div class="settings-card-title">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <div>
+
+                    <h2>Notifications</h2>
+
+                    <p>
+                        Manage the notifications you receive.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ORDER NOTIFICATIONS -->
+
+            <div class="setting-item">
+
+                <div class="setting-text">
+
+                    <h3>Order Notifications</h3>
+
+                    <p>
+                        Receive notifications when your order status changes.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input type="checkbox"
+                           id="orderNotifications"
+                           checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+
+            <!-- PAYMENT NOTIFICATIONS -->
+
+            <div class="setting-item">
+
+                <div class="setting-text">
+
+                    <h3>Payment Notifications</h3>
+
+                    <p>
+                        Receive notifications about your payments.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input type="checkbox"
+                           id="paymentNotifications"
+                           checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CART SETTINGS
+        =================================================== -->
+
+        <section class="settings-card">
+
+            <div class="settings-card-title">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <div>
+
+                    <h2>Cart</h2>
+
+                    <p>
+                        Manage your shopping cart preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="setting-item">
+
+                <div class="setting-text">
+
+                    <h3>Keep Items in Cart</h3>
+
+                    <p>
+                        Keep your cart items when you leave the website.
+                    </p>
+
+                </div>
+
+
+                <label class="switch">
+
+                    <input type="checkbox"
+                           id="keepCart"
+                           checked>
+
+                    <span class="slider"></span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ACCOUNT SETTINGS
+        =================================================== -->
+
+        <section class="settings-card">
+
+            <div class="settings-card-title">
+
+                <i class="fa-solid fa-user-gear"></i>
+
+                <div>
+
+                    <h2>Account</h2>
+
+                    <p>
+                        Manage your CASWear account.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CHANGE PASSWORD -->
+
+            <div class="account-setting">
+
+                <div class="setting-text">
+
+                    <h3>Change Password</h3>
+
+                    <p>
+                        Update your account password.
+                    </p>
+
+                </div>
+
+
+                <button id="changePasswordBtn"
+                        class="settings-button"
+                        type="button">
+
+                    Change Password
+
+                </button>
+
+            </div>
+
+
+            <!-- CHANGE PASSWORD FORM -->
+
+            <div id="passwordForm"
+                 class="password-form">
+
+
+                <div class="form-group">
+
+                    <label for="currentPassword">
+                        Current Password
+                    </label>
+
+                    <input type="password"
+                           id="currentPassword"
+                           placeholder="Enter current password">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="newPassword">
+                        New Password
+                    </label>
+
+                    <input type="password"
+                           id="newPassword"
+                           placeholder="Enter new password">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="confirmPassword">
+                        Confirm New Password
+                    </label>
+
+                    <input type="password"
+                           id="confirmPassword"
+                           placeholder="Confirm new password">
+
+                </div>
+
+
+                <div class="password-buttons">
+
+                    <button id="savePasswordBtn"
+                            class="save-password-btn"
+                            type="button">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        Update Password
+
+                    </button>
+
+
+                    <button id="cancelPasswordBtn"
+                            class="cancel-password-btn"
+                            type="button">
+
+                        Cancel
+
+                    </button>
+
+                </div>
+
+
+                <p id="passwordMessage"
+                   class="password-message">
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             BACK BUTTON
+        =================================================== -->
+
+        <div class="settings-back">
+
+            <a href="home.html">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- ==========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script type="module" src="settings.js"></script>
+<script type="module" src="home.js"></script>
+
+</body>
+
+</html>

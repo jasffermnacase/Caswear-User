@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>CASWear</title>
+</head>
+
+<body class="bg-color">
+
+   <nav class="navbar">
+
+    <div class="logo-container">
+        <img src="logo.png" class="logo-img">
+    </div>
+
+    <div class="nav-links">
+        <a href="home.html">HOME</a>
+        <a href="apparel.html">APPAREL</a>
+        <a href="cart.html">CART</a>
+        <a href="orders.html">ORDERS</a>
+        <a href="about.html">ABOUT</a>
+    </div>
+  <div class="nav-right">
+
+    
+
+        <div class="notification">
+
+            <button class="notif-btn" onclick="toggleNotif()">
+
+                <i class="fa-solid fa-bell"></i>
+
+                <span class="notif-count" id="notifCount">0</span>
+
+            </button>
+
+            <div class="notif-dropdown" id="notifDropdown">
+
+                <h3>Notifications</h3>
+
+                <div id="notifList">
+
+                    <p class="no-notif">No notifications.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    
+
+    <div class="profile">
+
+    <button class="profile-btn" onclick="toggleProfile()" type="button">
+
+        <img src="logo.png"
+            class="profile-img"
+            id="navProfilePicture"
+            alt="Profile">
+        <span id="userName">Hi, CASmate!</span> 
+
+        <i class="fa-solid fa-chevron-down"></i>
+
+   </button>
+
+ <div class="profile-dropdown" id="profileDropdown">
+
+        <a href="profile.html">
+            <i class="fa-solid fa-user"></i>
+            View Profile
+        </a>
+
+        <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+        </a>
+
+        <a href="help.html">
+            <i class="fa-solid fa-circle-question"></i>
+            Help
+        </a>
+
+        <a href="javascript:void(0);" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+            </a>
+
+    </div>
+
+</div>
+</div>
+    </div>
+
+</nav>
+
+
+    <!-- Welcome Section -->
+    <div class="head-welcome">
+        <p>Welcome to CASWear!</p>
+    </div>
+
+    <div class="head-quote">
+        <p>Your all-in-one platform for apparel reservation.</p>
+    </div>
+
+
+    <!-- Program Section -->
+    <div class="choose-program">
+        <p>CHOOSE YOUR PROGRAM</p>
+    </div>
+
+    <div class="select-program">
+        <p>Select your program to view available apparel and make a reservation now!</p>
+    </div>
+
+
+ <section class="programs">
+
+        <a href="it.html" class="program-box">
+            <img src="IT.png" alt="Information Technology">
+            <h3>Information Technology</h3>
+        </a>
+
+        <a href="is.html" class="program-box">
+            <img src="IS.png" alt="Information System">
+            <h3>Information System</h3>
+        </a>
+
+        <a href="provincial.html" class="program-box">
+            <img src="provincial.png" alt="Statistics">
+            <h3>CAS Provincial</h3>
+        </a>
+
+        <a href="stat.html" class="program-box">
+            <img src="statistics.png" alt="CAS Provincial">
+            <h3>Statistics</h3>
+        </a>
+
+        <a href="psych.html" class="program-box">
+            <img src="psychology.png" alt="Psychology">
+            <h3>Psychology</h3>
+        </a>
+
+    </section>
+
+<script type="module" src="home.js"></script>
+
+</body>
+</html>

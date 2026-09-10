@@ -1,0 +1,4226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.bg-color {
+    background-color: #fff1c5;
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    font-family: "DM Serif Display", serif;
+}
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #f9f7fa;
+    padding: 30px 50px;
+}
+
+
+
+.logo-container {
+    position: absolute;
+    left: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 220px;
+    height: 170px;
+}
+
+
+
+.nav-links {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+
+.nav-links a {
+    text-decoration: none;
+    color: #3d1700;
+    font-size: 15px;
+}
+
+
+.head-welcome {
+    font-size: 40px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+
+.head-quote {
+    font-size: 18px;
+    margin-left: 35px;
+}
+
+
+
+.choose-program {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 20px;
+}
+
+
+.select-program {
+    text-align: center;
+    font-size: 15px;
+}
+
+.title{
+    text-align:center;
+    margin:40px 0;
+    color:#3d1700;
+    font-size:40px;
+}
+
+.programs{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+    padding:20px;
+}
+
+.program-box{
+    width:180px;
+    height:200px;
+    background:white;
+    border-radius:15px;
+    text-decoration:none;
+    color:#3d1700;
+    text-align:center;
+    padding:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    transition:.3s;
+}
+
+.program-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+.program-box img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+    margin-bottom:20px;
+}
+
+.program-box h3{
+    font-size:13px;
+}
+
+.it-page{
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+/* Left Side */
+.left-panel{
+    width:220px;
+    margin-left:30px;
+}
+
+.it-logo{
+    width:80px;
+    display:block;
+    margin:0 auto 20px;
+}
+
+.categories-box{
+    background: #fff;
+    margin-left: 41px;
+    width: 135px;
+    padding: 18px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.15);
+    text-align: center;
+}
+
+.categories-box h2{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.categories-box ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categories-box li{
+    margin: 18px 0;
+}
+
+.categories-box a{
+    display: block;         
+    text-decoration: none;
+    color: #3d1700;
+    font-size: 16px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+
+/* Active (current page) */
+.categories-box a.active{
+    background-color: #fff1c5;
+    color: #3d1700;
+    font-weight: bold;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 260px);
+    gap: 40px;
+    margin-top: 6px;
+    margin-left: 50px;
+    align-items: start;
+}
+
+/* =========================================
+   PRODUCT CARD
+========================================= */
+
+.product-card {
+    width: 260px;
+    height: 300px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card img {
+    width: 150px;
+}
+
+
+.cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.coverimg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.start-btn {
+    position: absolute;
+    left: 190px;      
+    bottom: 40px;    
+
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: "DM Serif Display", serif;
+
+    background-color: #3d1700;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.start-btn:hover {
+    background-color: #5a2500;
+}
+
+.sign-btn {
+    position: absolute;
+    left: 190px;      
+    bottom: 130px;    
+
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: "DM Serif Display", serif;
+
+    background-color: #3d1700;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.sign1-btn {
+    position: absolute;
+    left: 187px;      
+    bottom: 40px;    
+
+    padding: 10px 30px;
+    font-size: 20px;
+    font-family: "DM Serif Display", serif;
+
+    background-color: #ffde59;
+    color:#3d1700 ;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.or-text{
+    position: absolute;
+    left: 20%;
+    bottom: 95px;       
+    transform: translateX(-50%);
+    font-size: 20px;
+    color: #3d1700;
+}
+
+.signupcover{
+    width: 100%;
+    height: 100%;
+}
+
+
+.signup-page{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.signup-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.signup-overlay{
+    position: absolute;
+    width: 25%;
+    height: 50%;
+    background: rgba(255,241,197,0.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* FORM */
+.signup-form{
+    width: 85%;
+    margin-top: 5px;
+}
+
+.signup-title{
+    font-size: 70px;
+    color: #3D1700;
+    margin-bottom: 20px;
+}
+
+.signup-label{
+    display: block;
+    font-size: 32px;
+    color: #7A7468;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.signup-input{
+    width: 100%;
+    height: 60px;
+    border: 1px solid #3D1700;
+    border-radius: 18px;
+    padding: 0 20px;
+    font-size: 20px;
+    background: #F2F2F7;
+}
+
+.signup-btn{
+    width: 280px;
+}
+
+.signup-overlay{
+    width: 30%;
+}
+
+/* FORM */
+.signup-form{
+    width: 75%;
+    margin-top: 5px;
+}
+
+
+.signup-title{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* LABELS */
+.signup-label{
+    font-size: 22px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+/* INPUT BOXES */
+.signup-input{
+    width: 140%;
+    height: 42px;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+/* BUTTON */
+.signup-btn{
+    width: 180px;
+    height: 55px;
+    font-size: 24px;
+    margin-top: 10px;
+    color: white;
+    background-color:#3D1700;
+    padding: 5px 20px;
+    font-size: 20px;
+    font-family: "DM Serif Display", serif;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: 10px;
+    display: block;
+}
+
+
+.login-page{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+.login-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.login-overlay{
+    position: absolute;
+    width: 25%;
+    height: 50%;
+    background: rgba(255,241,197,0.92);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+.login-form{
+    width: 85%;
+    margin-top: 5px;
+}
+
+.login-title{
+    font-size: 70px;
+    color: #3D1700;
+    margin-top: 50px;
+}
+
+.login-label{
+    display: block;
+    font-size: 32px;
+    color: #7A7468;
+    margin-top: 12px;
+    margin-bottom: 5px;
+}
+
+.login-input{
+    width: 100%;
+    height: 60px;
+    border: 1px solid #3D1700;
+    border-radius: 18px;
+    padding: 0 20px;
+    font-size: 20px;
+    background: #F2F2F7;
+}
+
+.login-btn{
+    width: 280px;
+}
+
+.login-overlay{
+    width: 30%;
+}
+
+/* FORM */
+.login-form{
+    width: 75%;
+    margin-top: 5px;
+}
+
+
+.login-title{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+/* LABELS */
+.login-label{
+    font-size: 22px;
+    margin-top: 4px;
+    margin-bottom: 2px;
+}
+
+/* INPUT BOXES */
+.login-input{
+    width: 140%;
+    height: 42px;
+    font-size: 16px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+/* BUTTON */
+.login-btn{
+    width: 100px;
+    height: 45px;
+    font-size: 24px;
+    margin-top: 10px;
+    color: white;
+    background-color:#3D1700;
+    font-size: 20px;
+    font-family: "DM Serif Display", serif;
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: 40px;
+    display: block;
+}
+
+.nav-right{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+}
+
+
+.nav-right{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+
+.notification{
+    position:relative;
+
+}
+
+.notif-btn{
+    background:none;
+    border:none;
+    cursor:pointer;
+    font-size:22px;
+    color:#3d1700;
+    position:relative;
+}
+
+.notif-btn:hover{
+    color:#5a2500;
+}
+
+.notif-count{
+    position:absolute;
+    top:-8px;
+    right:-8px;
+    width:16px;
+    height:16px;
+    background:red;
+    color:white;
+    border-radius:50%;
+    font-size:10px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.notif-dropdown{
+    display:none;
+    position:absolute;
+    top:35px;
+    right:0;
+    width:250px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    z-index:1000;
+}
+
+.notif-dropdown h3{
+    padding:15px;
+    margin:0;
+    border-bottom:1px solid #ddd;
+    color:#3d1700;
+}
+
+.no-notif{
+    padding:20px;
+    text-align:center;
+    color:gray;
+}
+
+.profile{
+    position:relative;
+}
+
+.profile-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:none;
+    border:none;
+    cursor:pointer;
+    color:#3d1700;
+    font-family:"DM Serif Display", serif;
+    font-size:16px;
+}
+
+
+
+#userName{
+    white-space:nowrap;
+}
+
+.profile-dropdown{
+    display:none;
+    position:absolute;
+    right:0;
+    top:45px;
+    width:180px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
+    overflow:hidden;
+    z-index:1000;
+}
+
+.profile-img{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+}
+
+.profile-dropdown a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    text-decoration:none;
+    color:#3d1700;
+    font-size:15px;
+}
+
+.profile-dropdown a:hover{
+    background:#fff1c5;
+}
+
+
+.shirt-page {
+    width: 100%;
+    min-height: 340px;
+    margin: 0;
+    padding: 18px 40px 35px;
+    box-sizing: border-box;
+    background-color: #fff1c7;
+
+    font-family: "DM Serif Display", serif;
+}
+
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 0 0 34px 5px;
+
+    font-size: 20px;
+    color: #3d2415;
+}
+
+.breadcrumb a {
+    color: #3d2415;
+    text-decoration: none;
+}
+
+.breadcrumb span {
+    color: #3d2415;
+}
+
+.breadcrumb strong {
+    color: #3d2415;
+}
+
+
+/* =========================================
+   PRODUCT CONTENT
+========================================= */
+
+.shirt-content {
+    display: grid;
+
+    grid-template-columns: 193px 205px 150px;
+
+    column-gap: 35px;
+
+    align-items: start;
+
+    margin-left: 0;
+}
+
+
+/* =========================================
+   SHIRT IMAGE
+========================================= */
+
+.shirt-image-container {
+    width: 250px;
+    height: 250px;
+    margin-left: 100px;
+    background-color: #f9f7fa;
+
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.shirt-image {
+    width: 200px;
+    height: 200px;
+
+    object-fit: contain;
+}
+
+
+/* =========================================
+   PRODUCT INFORMATION
+========================================= */
+
+.shirt-info {
+    width: 205px;
+    margin-left: 210px;
+    text-align: center;
+
+    color: #1f120c;
+}
+
+.shirt-info h1 {
+    margin: -10px 0 5px;
+
+    font-size: 24px;
+    line-height: 1.1;
+}
+
+.shirt-price {
+    font-size: 18px;
+
+    margin-bottom: 9px;
+}
+
+.shirt-description {
+    margin: 0 0 11px;
+
+    font-size: 12px;
+    line-height: 1.2;
+
+    font-weight: bold;
+}
+
+.shirt-info ul {
+    margin: 0;
+    padding-left: 60px;
+
+    text-align: left;
+
+    font-size: 15px;
+    line-height: 1.35;
+}
+
+
+
+.shirt-options {
+    width: 150px;
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+
+    color: #1f120c;
+}
+
+.shirt-options label {
+    margin-bottom: 5px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   SIZE SELECT
+========================================= */
+
+.shirt-options select {
+    width: 133px;
+    height: 31px;
+
+    margin-bottom: 9px;
+
+    padding: 3px 8px;
+
+    background-color: #f9f9f9;
+
+    border: 1px solid #777;
+
+    font-family: inherit;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   QUANTITY SELECT
+========================================= */
+
+#quantity {
+    width: 98px;
+}
+
+
+/* =========================================
+   ADD TO CART
+========================================= */
+
+.add-cart-btn {
+    width: 133px;
+    height: 31px;
+
+    margin-top: 34px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #4b2009;
+    color: white;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.add-cart-btn:hover {
+    background-color: #321405;
+}
+
+
+/* =========================================
+   RESERVE NOW
+========================================= */
+
+.reserve-btn {
+    width: 133px;
+    height: 31px;
+
+    margin-top: 7px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #ffd83d;
+    color: #4b2009;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.reserve-btn:hover {
+    background-color: #f3c800;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .shirt-page {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .shirt-content {
+        grid-template-columns: 180px 190px 140px;
+        column-gap: 20px;
+    }
+
+    .shirt-image-container {
+        width: 180px;
+        height: 195px;
+    }
+
+    .shirt-info {
+        width: 190px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .shirt-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+
+        justify-items: center;
+    }
+
+    .shirt-info {
+        width: 205px;
+    }
+
+    .shirt-options {
+        width: 150px;
+    }
+
+}
+/* =========================
+   CART PAGE
+========================= */
+
+.cart-page {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.cart-page h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.cart-subtitle {
+    color: #3d2415;
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   CART LAYOUT
+========================= */
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    align-items: start;
+}
+
+
+/* =========================
+   CART ITEMS
+========================= */
+
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: white;
+    padding: 20px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =========================
+   CHECKBOX
+========================= */
+
+.cart-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-checkbox {
+    width: 22px;
+    height: 22px;
+
+    cursor: pointer;
+
+    accent-color: #6b4f3a;
+}
+
+
+/* =========================
+   PRODUCT IMAGE
+========================= */
+
+.cart-item-image {
+    width: 100px;
+    height: 100px;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   PRODUCT DETAILS
+========================= */
+
+.cart-item-details {
+    flex: 1;
+}
+
+.cart-item-details h3 {
+    margin: 0 0 8px;
+
+    font-size: 20px;
+}
+
+.cart-item-details p {
+    margin: 0 0 10px;
+
+    color: #3d2415;
+}
+
+.item-total {
+    display: block;
+
+    margin-top: 10px;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   QUANTITY
+========================= */
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.quantity-control button {
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 6px;
+
+    background: #eee;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.quantity-control button:hover {
+    background: #ddd;
+}
+
+.quantity-control span {
+    min-width: 25px;
+
+    text-align: center;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   REMOVE BUTTON
+========================= */
+
+.remove-cart-btn {
+    border: none;
+
+    background: transparent;
+
+    color: #b33;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+.remove-cart-btn:hover {
+    color: #800;
+}
+
+
+/* =========================
+   CART SUMMARY
+========================= */
+
+.cart-summary {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+    top: 20px;
+}
+
+
+/* =========================
+   SUMMARY ROW
+========================= */
+
+.summary-row {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #3d2415;
+}
+
+.summary-row span {
+    color: #3d2415;
+}
+
+.summary-row strong {
+    font-size: 17px;
+}
+
+
+/* =========================
+   CHECKOUT BUTTON
+========================= */
+
+.checkout-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #6b4f3a;
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background: #4f3829;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   EMPTY CART
+========================= */
+
+.empty-cart {
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background: white;
+
+    border-radius: 15px;
+}
+
+.empty-cart i {
+    font-size: 50px;
+
+    color: #aaa;
+
+    margin-bottom: 15px;
+}
+
+.empty-cart h2 {
+    margin-bottom: 8px;
+}
+
+.empty-cart p {
+    color: #777;
+}
+
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .cart-summary {
+        position: static;
+    }
+
+    .cart-item {
+        gap: 12px;
+        padding: 15px;
+    }
+
+    .cart-item-image {
+        width: 75px;
+        height: 75px;
+    }
+
+    .cart-item-details h3 {
+        font-size: 17px;
+    }
+
+    .cart-page h1 {
+        font-size: 34px;
+    }
+}
+
+.reservation-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+
+    padding: 25px 30px 40px;
+
+    background: #fff0bf;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.reservation-header h1 {
+    margin: 0;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+
+    color: #351500;
+}
+
+.reservation-header p {
+    margin: 0 0 20px;
+
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-weight: bold;
+
+    color: #351500;
+}
+
+
+/* =========================
+   FORM LAYOUT
+========================= */
+
+.reservation-form {
+    display: grid;
+
+    grid-template-columns: 1fr 0.75fr;
+
+    gap: 55px;
+}
+
+
+/* =========================
+   HEADINGS
+========================= */
+
+.reservation-left h3,
+.reservation-right h3 {
+    margin: 0 0 10px;
+
+    font-family: Georgia, serif;
+    font-size: 13px;
+
+    color: #351500;
+}
+
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+    margin-bottom: 7px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #987d55;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    height: 27px;
+
+    padding: 4px 10px;
+
+    border: 1px solid #999;
+    border-radius: 7px;
+
+    background: #f8f8f8;
+
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4b1d00;
+}
+
+
+/* =========================
+   SELECT
+========================= */
+
+.select-wrapper {
+    position: relative;
+}
+
+.select-wrapper select {
+    appearance: none;
+    -webkit-appearance: none;
+
+    padding-right: 30px;
+
+    cursor: pointer;
+}
+
+.select-wrapper i {
+    position: absolute;
+
+    right: 10px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    font-size: 9px;
+
+    color: #6e604f;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   YEAR / SECTION / ID
+========================= */
+
+.student-details {
+    display: grid;
+
+    grid-template-columns: 0.8fr 1fr 1fr;
+
+    gap: 22px;
+}
+
+.student-details .form-group {
+    min-width: 0;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.reservation-right {
+    padding-top: 1px;
+}
+
+
+/* =========================
+   PAYMENT
+========================= */
+
+.payment-group {
+    margin-top: 5px;
+    margin-bottom: 18px;
+}
+
+.payment-options {
+    display: flex;
+    gap: 8px;
+}
+
+.payment-btn {
+    height: 27px;
+
+    padding: 0 16px;
+
+    border: 1px solid #999;
+    border-radius: 7px;
+
+    background: #f8f8f8;
+
+    color: #555;
+
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.payment-btn:first-child {
+    flex: 1;
+}
+
+.payment-btn:last-child {
+    width: 85px;
+}
+
+.payment-btn:hover,
+.payment-btn.active {
+    background: #4b1d00;
+
+    border-color: #4b1d00;
+
+    color: white;
+}
+
+
+/* =========================
+   NOTES
+========================= */
+
+.notes-group {
+    margin-top: 15px;
+}
+
+.form-group textarea {
+    height: 28px;
+
+    resize: vertical;
+
+    padding-top: 6px;
+}
+
+
+/* =========================
+   CONFIRM BUTTON
+========================= */
+
+.confirm-reservation {
+    display: block;
+
+    margin: 18px auto 0;
+
+    min-width: 148px;
+    height: 29px;
+
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #4b1d00;
+
+    color: white;
+
+    font-family: Georgia, serif;
+    font-size: 11px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.confirm-reservation:hover {
+    background: #301200;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .reservation-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .reservation-form {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .student-details {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .reservation-header h1 {
+        font-size: 23px;
+    }
+
+    .payment-options {
+        flex-direction: column;
+    }
+
+    .payment-btn:first-child,
+    .payment-btn:last-child {
+        width: 100%;
+    }
+
+}
+
+.orders-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+
+    padding: 15px 48px 35px;
+
+    background: #fff0bf;
+}
+
+.orders-container h1 {
+    margin: 0;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 28px;
+
+    color: #351500;
+}
+
+.orders-subtitle {
+    margin: -3px 0 12px;
+
+    font-family: Georgia, serif;
+    font-size: 12px;
+    font-weight: bold;
+
+    color: #351500;
+}
+
+
+/* =========================
+   ORDER TABS
+========================= */
+
+
+.order-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 35px;
+    margin-bottom: 10px;
+}
+
+.order-tabs button {
+    width: 100px;
+    height: 25px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #351500;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.order-tabs button:hover {
+    color: #6b2700;
+}
+
+.order-tabs button.active {
+    background: #ffe47d;
+}
+
+/* =========================
+   ORDER CARD
+========================= */
+
+.order-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+
+    width: 100%;
+    min-height: 102px;
+
+    margin-bottom: 7px;
+    padding: 7px 12px;
+
+    border: 1px solid #999;
+    border-radius: 7px;
+
+    background: #fafafa;
+}
+
+
+/* =========================
+   ORDER INFORMATION
+========================= */
+
+.order-info {
+    padding-top: 0;
+}
+
+.order-info h3 {
+    margin: 0 0 7px;
+
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    color: #351500;
+}
+
+.order-info p {
+    margin: 2px 0;
+
+    font-family: Georgia, serif;
+    font-size: 13px;
+
+    color: #351500;
+}
+
+.order-info .total {
+    margin-top: 5px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   ORDER RIGHT SIDE
+========================= */
+
+/* =========================
+   ORDER RIGHT SIDE
+========================= */
+
+.order-status {
+    position: relative;
+    width: 320px;
+    height: 88px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: bold;
+    white-space: nowrap;
+    margin-top: 0;
+}
+
+
+/* PENDING */
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* CONFIRMED */
+
+.status.confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+
+/* COMPLETED */
+
+.status.completed {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+
+/* CANCELLED */
+
+.status.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+
+/* =========================
+   ORDER DATE
+========================= */
+
+.order-date {
+    position: static;
+    margin: 7px 0 0;
+    font-family: Georgia, serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #351500;
+    white-space: nowrap;
+}
+
+/* =========================
+   VIEW DETAILS BUTTON
+========================= */
+
+.view-details {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: 149px;
+    height: 29px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #4b1d00;
+
+    color: white;
+
+    font-family: Georgia, serif;
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.view-details:hover {
+    background: #301200;
+}
+
+
+/* =========================
+   NO ORDERS
+========================= */
+
+.no-orders {
+    padding: 30px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+    font-size: 14px;
+
+    color: #6b5235;
+}
+
+
+/* =========================
+   ORDER DETAILS MODAL
+========================= */
+
+.order-modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.order-modal.show {
+    display: flex;
+}
+
+.modal-content {
+    position: relative;
+
+    width: 90%;
+    max-width: 450px;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    background: #fff0bf;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+
+    font-family: "DM Serif Display", serif;
+
+    color: #351500;
+}
+
+.modal-content p {
+    margin: 8px 0;
+
+    font-family: Georgia, serif;
+    font-size: 14px;
+
+    color: #351500;
+}
+
+.close-modal {
+    position: absolute;
+
+    top: 10px;
+    right: 15px;
+
+    border: none;
+    background: transparent;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    color: #351500;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .orders-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .order-tabs {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .order-card {
+        flex-direction: column;
+    }
+
+    .order-status {
+        width: 100%;
+        height: 70px;
+        margin-top: 10px;
+    }
+
+    .order-date {
+        position: static;
+        margin-top: 8px;
+    }
+
+    .view-details {
+        position: static;
+        margin-top: 8px;
+    }
+}
+
+
+.about-section {
+   width: 92%;
+    max-width: 1200px;
+    height: calc(100vh - 120px);
+    min-height: 0;
+    margin: 0 auto;
+    background: #fff0bf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 65px;
+    box-sizing: border-box;
+}
+
+
+/* LEFT CONTENT */
+
+.about-content {
+    width: 55%;
+}
+
+.about-content h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: 42px;
+    color: #2c150c;
+
+    margin: 0 0 20px;
+}
+
+.about-content > p {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.45;
+
+    color: #301810;
+
+    margin-bottom: 25px;
+}
+
+
+
+/* FEATURES */
+
+.about-features {
+    margin-top: 25px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.feature-icon {
+    width: 38px;
+    margin-right: 8px;
+
+    text-align: center;
+}
+
+.feature-icon i {
+    font-size: 25px;
+    color: #746d3e;
+    transform: rotate(-8deg);
+}
+
+.feature-item h3 {
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+    margin: 0;
+
+    color: #26130c;
+}
+
+.feature-item p {
+    font-family: Georgia, serif;
+
+    font-size: 10px;
+    margin: 2px 0 0;
+
+    color: #26130c;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.about-right {
+    width: 42%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* LOGO */
+
+.about-logo {
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background: #f8f8f8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 30px;
+
+    box-shadow:
+        8px 12px 15px rgba(0, 0, 0, 0.25);
+}
+
+.about-logo img {
+    width: 300px;
+    height: auto;
+    margin-left: 20px;
+    object-fit: contain;
+}
+
+
+/* CONTACT */
+
+.contact-box {
+    width: 100%;
+    max-width: 400px;
+
+    background: #f8f6f8;
+
+    border-radius: 15px;
+
+    padding: 20px 30px;
+
+    box-sizing: border-box;
+}
+
+.contact-box h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: 25px;
+
+    color: #26130c;
+
+    margin: 0 0 12px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    margin: 8px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #24140e;
+}
+
+.contact-item i {
+    width: 22px;
+
+    font-size: 19px;
+
+    color: #080808;
+
+    text-align: center;
+}
+
+.contact-item a {
+    color: #24140e;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    .about-section {
+        width: 94%;
+
+        flex-direction: column;
+
+        padding: 35px 25px;
+    }
+
+    .about-content,
+    .about-right {
+        width: 100%;
+    }
+
+    .about-content {
+        margin-bottom: 40px;
+    }
+
+    .about-content h1 {
+        font-size: 34px;
+    }
+
+    .about-content > p {
+        font-size: 15px;
+    }
+
+    .about-right {
+        align-items: center;
+    }
+
+    .contact-box {
+        max-width: 450px;
+    }
+}
+
+/* =========================================
+   ORDER BUTTONS
+========================================= */
+
+.order-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    width: 150px;
+
+    margin-top: 15px;
+    gap: 15px;
+}
+
+.cancel-order-btn,
+.view-details {
+    width: 140px;
+    height: 35px;
+    box-sizing: border-box;
+    margin: 0 !important;
+    padding: 0 8px;
+
+    border: none;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: bold;
+}
+
+/* CANCEL - TOP */
+.cancel-order-btn {
+    order: 1;
+    background: #8b1e1e;
+    color: white;
+}
+
+.cancel-order-btn:hover {
+    background: #641414;
+}
+
+/* VIEW DETAILS - BOTTOM */
+.view-details {
+    order: 2;
+    background: #333;
+    color: white;
+}
+
+.view-details:hover {
+    background: #555;
+}
+
+/* ICONS */
+.cancel-order-btn i,
+.view-details i {
+    margin-right: 6px;
+    position: static;
+}
+
+/* TEXT */
+.view-details span {
+    position: static;
+}
+
+.fa-eye {
+    position: relative;
+    top: 0;
+}
+
+
+
+/* STATUS */
+
+.status {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.status.pending {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status.confirmed {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status.completed {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status.cancelled {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ==========================================================
+   NOTIFICATION LIST - SHOW 5, SCROLL FOR MORE
+   ========================================================== */
+
+#notifList {
+    max-height: 350px; /* Adjust height if needed */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Optional: make scrolling look cleaner */
+#notifList::-webkit-scrollbar {
+    width: 6px;
+}
+
+#notifList::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+#notifList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* Each notification */
+.notif-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.signup-text {  
+    margin-left: 45px;
+    margin-top: 15px;
+    font-family: "DM Serif Display", serif;
+    font-size: 15px;
+    color: #3d1700;
+}
+
+.signup-link {
+    color: #3d1700;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.signup-link:hover {
+    color: #5a2500;
+}
+
+.login-text {
+    margin-top: auto;
+    margin-left: 55px;
+    text-align: center;
+    font-family: "DM Serif Display", serif;
+    font-size: 14px;
+    color: #3d1700;
+}
+
+.login-link {
+    color: #3d1700;
+    font-weight: bold;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.login-link:hover {
+   color: #5a2500;
+}
+
+.profile-page {
+    width: 100%;
+    min-height: calc(100vh - 120px);
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 45px 20px;
+}
+
+
+/* ==========================================================
+   PROFILE CONTAINER
+========================================================== */
+
+.profile-container {
+  margin-right: 500px;
+    
+}
+
+
+/* PROFILE TITLE */
+
+.profile-container > h1 {
+    margin: 0 0 40px;
+    color: #3d1700;
+    font-family: "DM Serif Display", serif;
+    font-size: 40px;
+}
+
+
+/* ==========================================================
+   PROFILE CONTENT
+========================================================== */
+
+.profile-content {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 70px;
+}
+
+
+/* ==========================================================
+   PROFILE PICTURE SECTION
+========================================================== */
+
+.profile-picture-section {
+    width: 250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+
+/* PROFILE IMAGE */
+
+.profile-picture {
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    border: 3px solid #3d1700;
+
+    background: #f9f7fa;
+
+    margin-bottom: 15px;
+}
+
+
+/* EDIT / UPLOAD */
+
+.edit-upload {
+    color: #3d1700;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 15px;
+
+    text-decoration: underline;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.edit-upload:hover {
+    color: #7a3a00;
+}
+
+
+/* HIDE FILE INPUT */
+
+#profileUpload {
+    display: none;
+}
+
+
+/* ==========================================================
+   PROFILE INFORMATION
+========================================================== */
+
+.profile-info {
+    flex: 1;
+
+    color: #3d1700;
+}
+
+
+.profile-info h2 {
+    margin: 0 0 8px;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 30px;
+
+    color: #3d1700;
+}
+
+
+.profile-info > p {
+    margin: 5px 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    color: #4d3828;
+}
+
+
+/* ==========================================================
+   PROFILE FORM
+========================================================== */
+
+.profile-info .form-group {
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+
+.profile-info .form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #3d1700;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 17px;
+}
+
+
+.profile-info .form-group input {
+    width: 100%;
+
+    height: 42px;
+
+    padding: 8px 14px;
+
+    border: 1px solid #8d7b68;
+
+    border-radius: 10px;
+
+    background: #f9f7fa;
+
+    color: #3d1700;
+
+    font-family: Georgia, serif;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+.profile-info .form-group input:focus {
+    border-color: #3d1700;
+
+    box-shadow: 0 0 0 2px rgba(61, 23, 0, 0.1);
+}
+
+
+/* ==========================================================
+   RESPONSIVE PROFILE
+========================================================== */
+
+@media (max-width: 800px) {
+
+    .profile-page {
+        padding: 30px 15px;
+    }
+
+    .profile-container {
+        padding: 30px;
+    }
+
+    .profile-content {
+        gap: 35px;
+    }
+
+    .profile-picture-section {
+        width: 200px;
+    }
+
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .profile-content {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .profile-picture-section {
+        width: 100%;
+    }
+
+    .profile-info {
+        width: 100%;
+    }
+
+    .profile-container > h1 {
+        font-size: 34px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .profile-container {
+        padding: 25px 20px;
+    }
+
+    .profile-picture {
+        width: 140px;
+        height: 140px;
+    }
+
+    .profile-container > h1 {
+        font-size: 30px;
+
+        margin-bottom: 30px;
+    }
+
+    .profile-info h2 {
+        font-size: 25px;
+    }
+
+}
+
+.homepage-img {
+    width: 60%;
+    margin-left: 260px;
+   
+}
+
+.reserve-button {
+    margin-left: -480px;
+    background-color: #3d1700;
+    font-family: DM sans-serif;
+    border-radius: 10px;
+    padding: 10px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    border: none;
+}
+
+
+.payment-page {
+
+    min-height: calc(100vh - 68px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: flex-start;
+
+    gap: 105px;
+
+    padding: 22px 60px;
+}
+
+
+/* =========================================================
+   LEFT QR SECTION
+========================================================= */
+
+.qr-section {
+    width: 415px;
+}
+
+.qr-card {
+
+    width: 313px;
+    height: 316px;
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    margin-left: 3px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+
+/* QR IMAGE */
+
+.qr-card img {
+
+    width: 225px;
+    height: 225px;
+
+    object-fit: contain;
+}
+
+
+/* QR FOOTER */
+
+.qr-card p {
+
+    margin-top: 12px;
+
+    font-family: Arial, sans-serif;
+
+    color: #777;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+
+/* QR TITLE */
+
+.qr-section h1 {
+
+    font-size: 25px;
+
+    margin-top: 17px;
+    margin-left: 0;
+
+    color: #4b250d;
+}
+
+
+/* =========================================================
+   SUMMARY SECTION
+========================================================= */
+
+.summary-section {
+
+    width: 335px;
+}
+
+
+/* SUMMARY CARD */
+
+.summary-card {
+
+    background: #f8f5f8;
+
+    width: 335px;
+    min-height: 323px;
+
+    border-radius: 15px;
+
+    padding: 20px 15px 10px;
+}
+
+
+/* TITLE */
+
+.summary-card h2 {
+
+    font-size: 24px;
+
+    margin-left: 15px;
+    margin-bottom: 30px;
+
+    color: #4b250d;
+}
+
+
+/* SUMMARY ROW */
+
+.summary-row {
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 7px 15px;
+
+    color: #4b250d;
+
+    font-size: 23px;
+
+    font-weight: bold;
+}
+
+
+/* DIVIDER */
+
+.divider {
+
+    height: 2px;
+
+    background: #666;
+
+    margin: 3px 0;
+}
+
+
+/* TOTAL */
+
+.summary-row.total {
+
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+
+/* =========================================================
+   CONTINUE BUTTON
+========================================================= */
+
+.continue-button {
+
+    width: 282px;
+    height: 53px;
+
+    margin-top: 14px;
+    margin-left: 30px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background: #5a2806;
+
+    color: white;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.continue-button:hover {
+
+    background: #753a12;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 0 15px;
+    }
+
+    .navbar nav {
+        gap: 10px;
+        margin-left: 5px;
+    }
+
+    .navbar nav a {
+        font-size: 11px;
+    }
+
+    .username {
+        display: none;
+    }
+
+    .payment-page {
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 30px;
+
+        padding: 25px 20px;
+    }
+
+    .qr-section {
+        width: auto;
+    }
+
+    .qr-section h1 {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    .summary-section {
+        width: 100%;
+        max-width: 335px;
+    }
+}
+
+.reference-row {
+    align-items: center;
+}
+
+.reference-row span {
+    white-space: nowrap;
+}
+
+#referenceNumber {
+    width: 130px;
+    height: 35px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 5px 0;
+
+    color: #4b250d;
+
+    font-family: "DM Serif Display", serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#referenceNumber::placeholder {
+    color: #777;
+    font-family: "DM Serif Display", serif;
+    font-size: 16px;
+}
+
+/* ==========================================================
+   CASWEAR SETTINGS PAGE
+========================================================== */
+
+.settings-page {
+
+    width: 100%;
+
+    min-height: calc(100vh - 120px);
+
+    padding: 40px 20px 60px;
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+.settings-container {
+
+    width: 90%;
+
+    max-width: 900px;
+
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.settings-header {
+
+    margin-bottom: 25px;
+
+}
+
+
+.settings-header h1 {
+
+    margin: 0;
+
+    color: #3d1700;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 42px;
+
+}
+
+
+.settings-header p {
+
+    margin-top: 5px;
+
+    color: #6b5235;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+}
+
+
+/* ==========================================================
+   SETTINGS CARD
+========================================================== */
+
+.settings-card {
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    padding: 25px 30px;
+
+    margin-bottom: 20px;
+
+    box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.10);
+
+}
+
+
+/* ==========================================================
+   CARD TITLE
+========================================================== */
+
+.settings-card-title {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding-bottom: 20px;
+
+    border-bottom: 1px solid #ddd;
+
+}
+
+
+.settings-card-title > i {
+
+    width: 45px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #fff1c5;
+
+    color: #3d1700;
+
+    font-size: 20px;
+
+}
+
+
+.settings-card-title h2 {
+
+    margin: 0;
+
+    color: #3d1700;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 24px;
+
+}
+
+
+.settings-card-title p {
+
+    margin: 3px 0 0;
+
+    color: #777;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+}
+
+
+/* ==========================================================
+   SETTING ITEM
+========================================================== */
+
+.setting-item {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #eee;
+
+}
+
+
+.setting-item:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.setting-text {
+
+    flex: 1;
+
+}
+
+
+.setting-text h3 {
+
+    margin: 0 0 5px;
+
+    color: #3d1700;
+
+    font-family: Georgia, serif;
+
+    font-size: 16px;
+
+}
+
+
+.setting-text p {
+
+    margin: 0;
+
+    color: #777;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+
+}
+
+
+/* ==========================================================
+   SWITCH
+========================================================== */
+
+.switch {
+
+    position: relative;
+
+    width: 50px;
+
+    height: 27px;
+
+    flex-shrink: 0;
+
+}
+
+
+.switch input {
+
+    opacity: 0;
+
+    width: 0;
+
+    height: 0;
+
+}
+
+
+.slider {
+
+    position: absolute;
+
+    cursor: pointer;
+
+    inset: 0;
+
+    background: #ccc;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+
+}
+
+
+.slider:before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 21px;
+
+    height: 21px;
+
+    left: 3px;
+
+    top: 3px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    transition: 0.3s;
+
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+
+}
+
+
+.switch input:checked + .slider {
+
+    background: #3d1700;
+
+}
+
+
+.switch input:checked + .slider:before {
+
+    transform: translateX(23px);
+
+}
+
+
+/* ==========================================================
+   ACCOUNT SETTING
+========================================================== */
+
+.account-setting {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding-top: 20px;
+
+}
+
+
+/* ==========================================================
+   SETTINGS BUTTON
+========================================================== */
+
+.settings-button {
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #3d1700;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    white-space: nowrap;
+
+}
+
+
+.settings-button:hover {
+
+    background: #5a2500;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* ==========================================================
+   PASSWORD FORM
+========================================================== */
+
+.password-form {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #fff8df;
+
+    border-radius: 12px;
+
+    border: 1px solid #ead9a5;
+
+}
+
+
+.password-form.show {
+
+    display: block;
+
+}
+
+
+/* ==========================================================
+   FORM GROUP
+========================================================== */
+
+.password-form .form-group {
+
+    margin-bottom: 15px;
+
+}
+
+
+.password-form label {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #3d1700;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.password-form input {
+
+    width: 100%;
+
+    height: 42px;
+
+    padding: 8px 12px;
+
+    border: 1px solid #aaa;
+
+    border-radius: 8px;
+
+    background: #fff;
+
+    color: #3d1700;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+}
+
+
+.password-form input:focus {
+
+    border-color: #3d1700;
+
+    box-shadow:
+        0 0 0 2px rgba(61, 23, 0, 0.08);
+
+}
+
+
+/* ==========================================================
+   PASSWORD BUTTONS
+========================================================== */
+
+.password-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+}
+
+
+.save-password-btn,
+.cancel-password-btn {
+
+    height: 40px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+}
+
+
+.save-password-btn {
+
+    background: #3d1700;
+
+    color: white;
+
+}
+
+
+.save-password-btn:hover {
+
+    background: #5a2500;
+
+}
+
+
+.cancel-password-btn {
+
+    background: #ddd;
+
+    color: #3d1700;
+
+}
+
+
+.cancel-password-btn:hover {
+
+    background: #ccc;
+
+}
+
+
+/* ==========================================================
+   PASSWORD MESSAGE
+========================================================== */
+
+.password-message {
+
+    margin: 12px 0 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+}
+
+
+.password-message.success {
+
+    color: #287a36;
+
+}
+
+
+.password-message.error {
+
+    color: #a32929;
+
+}
+
+
+/* ==========================================================
+   BACK BUTTON
+========================================================== */
+
+.settings-back {
+
+    margin-top: 10px;
+
+}
+
+
+.settings-back a {
+
+    color: #3d1700;
+
+    text-decoration: none;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+}
+
+
+.settings-back a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ==========================================================
+   MOBILE NAVBAR
+========================================================== */
+
+@media (max-width: 800px) {
+
+    .navbar {
+
+        padding: 15px;
+
+        flex-wrap: wrap;
+
+        min-height: auto;
+
+    }
+
+
+    .logo-container {
+
+        position: static;
+
+        left: auto;
+
+    }
+
+
+    .logo-img {
+
+        width: 100px;
+
+        height: auto;
+
+    }
+
+
+    .nav-links {
+
+        order: 3;
+
+        width: 100%;
+
+        margin-top: 15px;
+
+        gap: 15px;
+
+        flex-wrap: wrap;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 12px;
+
+    }
+
+
+    .nav-right {
+
+        margin-left: auto;
+
+        gap: 10px;
+
+    }
+
+
+    #userName {
+
+        display: none;
+
+    }
+
+
+    .profile-btn {
+
+        font-size: 14px;
+
+    }
+
+
+    .profile-img {
+
+        width: 35px;
+
+        height: 35px;
+
+    }
+
+
+    .settings-page {
+
+        padding: 25px 12px 40px;
+
+    }
+
+
+    .settings-container {
+
+        width: 100%;
+
+    }
+
+
+    .settings-header h1 {
+
+        font-size: 35px;
+
+    }
+
+
+    .settings-card {
+
+        padding: 20px;
+
+    }
+
+}
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 500px) {
+
+    .navbar {
+
+        padding: 12px;
+
+    }
+
+
+    .logo-img {
+
+        width: 80px;
+
+    }
+
+
+    .nav-links {
+
+        gap: 8px;
+
+        justify-content: center;
+
+    }
+
+
+    .nav-links a {
+
+        font-size: 10px;
+
+    }
+
+
+    .nav-right {
+
+        gap: 7px;
+
+    }
+
+
+    .notif-btn {
+
+        font-size: 18px;
+
+    }
+
+
+    .settings-header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .settings-header p {
+
+        font-size: 13px;
+
+    }
+
+
+    .settings-card {
+
+        padding: 18px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .settings-card-title {
+
+        gap: 10px;
+
+    }
+
+
+    .settings-card-title > i {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 16px;
+
+    }
+
+
+    .settings-card-title h2 {
+
+        font-size: 20px;
+
+    }
+
+
+    .setting-item {
+
+        align-items: flex-start;
+
+    }
+
+
+    .setting-text h3 {
+
+        font-size: 14px;
+
+    }
+
+
+    .setting-text p {
+
+        font-size: 11px;
+
+    }
+
+
+    .account-setting {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .settings-button {
+
+        width: 100%;
+
+    }
+
+
+    .password-buttons {
+
+        flex-direction: column;
+
+    }
+
+
+    .save-password-btn,
+    .cancel-password-btn {
+
+        width: 100%;
+
+    }
+
+
+    .notif-dropdown {
+
+        right: -50px;
+
+        width: 280px;
+
+    }
+
+
+    .profile-dropdown {
+
+        right: -5px;
+
+    }
+
+}
+
+/* ==========================================================
+   FORGOT PASSWORD BUTTON
+========================================================== */
+
+.forgot-password-container {
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.forgot-password-btn {
+    display: inline-block;
+
+    padding: 8px 14px;
+    margin-right: 135px;
+    border: none;
+    border-radius: 6px;
+
+    background: #6b4328;
+    color: white;
+
+    font-size: 13px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.forgot-password-btn:hover {
+    background: #4f2f1c;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.forgot-password-btn:active {
+    transform: translateY(0);
+}
+
+.login-message {
+    width: 100%;
+    text-align: center;
+    margin: 15px auto 0 auto;
+    margin-left: 40px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.login-message.success {
+    color: #6b4328;
+    text-align: center;
+}
+
+.login-message.error {
+    color: #b33a3a;
+    text-align: center;
+}
+
+/* ==========================================================
+   HELP PAGE
+========================================================== */
+
+.help-page {
+    min-height: calc(100vh - 80px);
+    padding: 50px 20px;
+}
+
+.help-container {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+
+/* ==========================================================
+   HELP HEADER
+========================================================== */
+
+.help-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.help-header h1 {
+    font-family: "DM Serif Display", serif;
+    font-size: 48px;
+    color: #5b3823;
+    margin-bottom: 10px;
+}
+
+.help-header p {
+    color: #6b4328;
+    font-size: 16px;
+}
+
+
+/* ==========================================================
+   HELP CARD
+========================================================== */
+
+.help-card {
+    background: #fffaf3;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 18px rgba(70, 40, 20, 0.12);
+    border: 1px solid #eadbca;
+}
+
+
+/* ==========================================================
+   CARD TITLE
+========================================================== */
+
+.help-card-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 25px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eadbca;
+}
+
+.help-card-title > i {
+    font-size: 28px;
+    color: #6b4328;
+    width: 45px;
+    text-align: center;
+}
+
+.help-card-title h2 {
+    font-family: "DM Serif Display", serif;
+    color: #5b3823;
+    font-size: 27px;
+    margin: 0 0 5px 0;
+}
+
+.help-card-title p {
+    color: #80634d;
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   HELP ITEMS
+========================================================== */
+
+.help-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee2d6;
+}
+
+.help-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.help-item > i {
+    color: #6b4328;
+    font-size: 19px;
+    width: 25px;
+    margin-top: 4px;
+    text-align: center;
+}
+
+.help-item h3 {
+    color: #5b3823;
+    font-size: 17px;
+    margin: 0 0 7px 0;
+}
+
+.help-item p {
+    color: #6f5a49;
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.help-item strong {
+    color: #5b3823;
+}
+
+
+/* ==========================================================
+   CONTACT HELP
+========================================================== */
+
+.contact-help-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    background: #f5eadc;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.contact-help-content > i {
+    color: #6b4328;
+    font-size: 23px;
+    margin-top: 3px;
+}
+
+.contact-help-content h3 {
+    color: #5b3823;
+    margin: 0 0 7px 0;
+}
+
+.contact-help-content p {
+    color: #6f5a49;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ==========================================================
+   BACK TO HOME
+========================================================== */
+
+.help-back {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.help-back a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b4328;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.help-back a:hover {
+    color: #4f2f1c;
+    transform: translateX(-3px);
+}
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .help-page {
+        padding: 30px 15px;
+    }
+
+    .help-header h1 {
+        font-size: 38px;
+    }
+
+    .help-card {
+        padding: 22px;
+    }
+
+    .help-card-title {
+        gap: 12px;
+    }
+
+    .help-card-title h2 {
+        font-size: 23px;
+    }
+
+    .help-item {
+        gap: 12px;
+    }
+
+    .help-item h3 {
+        font-size: 16px;
+    }
+
+    .help-item p {
+        font-size: 13px;
+    }
+
+}
+
+/* ==========================================================
+   NOTIFICATION DELETE SECTION
+   ========================================================== */
+
+.notif-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid #eee;
+}
+
+/* DELETE ALL BUTTON */
+.delete-all-notif-btn {
+    border: none;
+    background: transparent;
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 7px 10px;
+    border-radius: 6px;
+    transition: 0.2s ease;
+}
+
+.delete-all-notif-btn i {
+    margin-right: 5px;
+}
+
+.delete-all-notif-btn:hover {
+    background: #ffe8eb;
+    color: #b02a37;
+}
+
+
+/* ==========================================================
+   NOTIFICATION ITEM
+   ========================================================== */
+
+.notif-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    transition: background 0.2s ease;
+}
+
+.notif-item:hover {
+    background: #f8f9fa;
+}
+
+
+/* UNREAD NOTIFICATION */
+
+.notif-item.unread {
+    background: #f1f6ff;
+}
+
+
+/* ==========================================================
+   NOTIFICATION CONTENT
+   ========================================================== */
+
+.notif-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notif-message {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #333;
+    word-break: break-word;
+}
+
+.notif-date {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #888;
+}
+
+
+/* ==========================================================
+   DELETE ONE NOTIFICATION BUTTON
+   ========================================================== */
+
+.delete-notif-btn {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    border-radius: 6px;
+
+    background: transparent;
+    color: #dc3545;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+.delete-notif-btn i {
+    font-size: 14px;
+}
+
+.delete-notif-btn:hover {
+    background: #ffe8eb;
+    color: #b02a37;
+    transform: scale(1.05);
+}
+
+
+/* ==========================================================
+   NO NOTIFICATIONS
+   ========================================================== */
+
+.no-notif {
+    text-align: center;
+    padding: 30px 15px;
+    color: #888;
+}
+
+.no-notif i {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.no-notif p {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* ==========================================================
+   MOBILE
+   ========================================================== */
+
+@media (max-width: 600px) {
+
+    .notif-item {
+        padding: 12px 10px;
+    }
+
+    .notif-message {
+        font-size: 13px;
+    }
+
+    .delete-notif-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .delete-all-notif-btn {
+        font-size: 12px;
+    }
+
+}
+

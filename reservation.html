@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>CASWear - Reservation</title>
+</head>
+
+<body class="bg-color">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <div class="logo-container">
+            <img src="logo.png" class="logo-img">
+        </div>
+
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="apparel.html">APPAREL</a>
+            <a href="cart.html">CART</a>
+            <a href="orders.html">ORDERS</a>
+            <a href="about.html">ABOUT</a>
+        </div>
+
+        <div class="nav-right">
+
+            <!-- NOTIFICATION -->
+            <div class="notification">
+
+                <button class="notif-btn" onclick="toggleNotif()">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-count" id="notifCount">0</span>
+                </button>
+
+                <div class="notif-dropdown" id="notifDropdown">
+                    <h3>Notifications</h3>
+
+                    <div id="notifList">
+                        <p class="no-notif">No notifications.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- PROFILE -->
+            <div class="profile">
+
+                <button class="profile-btn"
+                        onclick="toggleProfile()"
+                        type="button">
+
+                    <img src="logo.png"
+                class="profile-img"
+                id="navProfilePicture"
+                alt="Profile">
+
+                    <span id="userName">Hi, CASmate!</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+
+                </button>
+
+                <div class="profile-dropdown" id="profileDropdown">
+
+                    <a href="profile.html">
+                        <i class="fa-solid fa-user"></i>
+                        View Profile
+                    </a>
+
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+
+                    <a href="help.html">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Help
+                    </a>
+
+                    <a href="javascript:void(0);" onclick="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+            </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- RESERVATION -->
+    <section class="reservation-container">
+
+        <div class="reservation-header">
+            <h1>RESERVATION DETAILS</h1>
+            <p>Please fill in the form below.</p>
+        </div>
+
+
+        <div class="reservation-form">
+
+            <!-- LEFT -->
+            <div class="reservation-left">
+
+                <h3>Personal Information</h3>
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="contact">Contact Number</label>
+                    <input type="tel" id="contact">
+                </div>
+
+                <div class="form-group">
+                    <label for="program">Program</label>
+
+                    <div class="select-wrapper">
+                        <select id="program">
+                            <option value="" selected disabled>
+                                Select Program
+                            </option>
+                            <option value="BSIT">BS Information Technology</option>
+                            <option value="BSP">BS Psychology</option>
+                            <option value="BSS">
+                                BS Statistics
+                            </option>
+                            <option value="BSIS">BS Information Systems</option>
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+
+
+                <!-- YEAR / SECTION / ID -->
+                <div class="student-details">
+
+                    <div class="form-group">
+                        <label for="yearLevel">Year Level</label>
+
+                        <div class="select-wrapper">
+                            <select id="yearLevel">
+                                <option value="" selected disabled>
+                                    Select Level
+                                </option>
+                                <option value="1">1st Year</option>
+                                <option value="2">2nd Year</option>
+                                <option value="3">3rd Year</option>
+                                <option value="4">4th Year</option>
+                            </select>
+
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="section">Section</label>
+                        <input type="text" id="section">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="idNumber">ID Number</label>
+                        <input type="text" id="idNumber">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT -->
+            <div class="reservation-right">
+
+                <h3>Pick-up/Claiming Details</h3>
+
+                <div class="form-group">
+
+                    <label for="claimingLocation">
+                        Claiming Location
+                    </label>
+
+                    <div class="select-wrapper">
+
+                        <select id="claimingLocation">
+
+                            <option value="" selected disabled>
+                                Select claiming location
+                            </option>
+
+                            <option value="campus">CAS Deans Office</option>
+                            <option value="cas-building">Provincial Office</option>
+                        
+
+                        </select>
+
+                        <i class="fa-solid fa-chevron-down"></i>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAYMENT -->
+                <div class="form-group payment-group">
+
+                    <label>Mode of Payment</label>
+
+                    <div class="payment-options">
+
+                        <button type="button"
+                    class="payment-btn"
+                    data-payment="Online Payment (Gcash)">
+                    Online Payment (Gcash)
+                    </button>
+
+                        <button type="button"
+                                class="payment-btn"
+                                data-payment="Cash">
+                            Cash
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NOTES -->
+                <div class="form-group notes-group">
+
+                    <label for="reservationNotes">
+                        Reservation Notes
+                    </label>
+
+                    <textarea id="reservationNotes"></textarea>
+
+                </div>
+
+
+                <!-- CONFIRM -->
+                <button type="button"
+                        class="confirm-reservation"
+                        id="confirmReservation">
+
+                    CONFIRM RESERVATION
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="module" src="home.js"></script>
+    <script type="module" src="reservation.js"></script>
+
+</body>
+</html>
