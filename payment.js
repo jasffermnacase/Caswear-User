@@ -1,14 +1,3 @@
-// ==========================================================
-// CASWEAR - PAYMENT.JS
-// COMPLETE PAYMENT FILE
-// FIXED PAYMENT REFERENCE + ORDER LINKING
-// ==========================================================
-
-
-// ==========================================================
-// FIREBASE IMPORTS
-// ==========================================================
-
 import {
     initializeApp
 } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
@@ -33,28 +22,13 @@ import {
 // ==========================================================
 
 const firebaseConfig = {
-
-    apiKey:
-        "AIzaSyAqlEDKaGECuc8ycmzZVHD7gQeZcqnm7ek",
-
-    authDomain:
-        "caswear-c21e2.firebaseapp.com",
-
-    projectId:
-        "caswear-c21e2",
-
-    storageBucket:
-        "caswear-c21e2.firebasestorage.app",
-
-    messagingSenderId:
-        "842998215942",
-
-    appId:
-        "1:842998215942:web:fcd283e0cd118451951a87",
-
-    measurementId:
-        "G-317N3TECX6"
-
+    apiKey: "AIzaSyAqlEDKaGECuc8ycmzZVHD7gQeZcqnm7ek",
+    authDomain: "caswear-c21e2.firebaseapp.com",
+    projectId: "caswear-c21e2",
+    storageBucket: "caswear-c21e2.firebasestorage.app",
+    messagingSenderId: "842998215942",
+    appId: "1:842998215942:web:fcd283e0cd118451951a87",
+    measurementId: "G-317N3TECX6"
 };
 
 
@@ -62,14 +36,11 @@ const firebaseConfig = {
 // INITIALIZE FIREBASE
 // ==========================================================
 
-const app =
-    initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 
-const auth =
-    getAuth(app);
+const auth = getAuth(app);
 
-const db =
-    getFirestore(app);
+const db = getFirestore(app);
 
 
 // ==========================================================
@@ -89,53 +60,54 @@ const PROCESSING_FEE = 10;
 
 
 // ==========================================================
+// RECEIPT IMAGE SETTINGS
+// ==========================================================
+
+// Keep the compressed Base64 receipt below this limit.
+// Other document fields also count toward Firestore's
+// maximum document size of 1 MiB.
+
+const MAX_RECEIPT_BASE64_LENGTH = 600 * 1024;
+
+const MAX_RECEIPT_WIDTH = 1000;
+
+const MAX_RECEIPT_HEIGHT = 1000;
+
+
+// ==========================================================
 // CHECK FIREBASE AUTH
 // ==========================================================
 
-onAuthStateChanged(
-    auth,
-    function(user) {
+onAuthStateChanged(auth, function(user) {
 
-        currentUser = user;
+    currentUser = user;
 
-        authReady = true;
+    authReady = true;
 
-        if (user) {
+    if (user) {
 
-            console.log(
-                "PAYMENT - USER LOGGED IN:",
-                user.uid
-            );
+        console.log("PAYMENT - USER LOGGED IN:", user.uid);
 
-            console.log(
-                "PAYMENT - USER EMAIL:",
-                user.email
-            );
+        console.log("PAYMENT - USER EMAIL:", user.email);
 
-        } else {
+    } else {
 
-            console.log(
-                "PAYMENT - NO FIREBASE USER"
-            );
-
-        }
+        console.log("PAYMENT - NO FIREBASE USER");
 
     }
-);
+
+});
 
 
 // ==========================================================
 // PAGE LOAD
 // ==========================================================
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function() {
+document.addEventListener("DOMContentLoaded", function() {
 
-        loadReservationAmount();
+    loadReservationAmount();
 
-    }
-);
+});
 
 
 // ==========================================================
@@ -148,12 +120,9 @@ function loadReservationAmount() {
 
     try {
 
-        reservationData =
-            JSON.parse(
-                localStorage.getItem(
-                    "reservationData"
-                )
-            );
+        reservationData = JSON.parse(
+            localStorage.getItem("reservationData")
+        );
 
     } catch (error) {
 
@@ -170,10 +139,6 @@ function loadReservationAmount() {
     );
 
 
-    // ======================================================
-    // IF RESERVATION DATA DOES NOT EXIST
-    // ======================================================
-
     if (!reservationData) {
 
         setPaymentAmount(
@@ -183,56 +148,21 @@ function loadReservationAmount() {
             PROCESSING_FEE
         );
 
-        console.log(
-            "No reservationData found."
-        );
+        console.log("No reservationData found.");
 
         return;
 
     }
 
 
-    // ======================================================
-    // GET SUBTOTAL
-    // ======================================================
+    const subtotal = Number(reservationData.subtotal) || 0;
 
-    const subtotal =
-        Number(
-            reservationData.subtotal
-        ) || 0;
+    const transferFee = Number(reservationData.transferFee) || 0;
 
+    const processingFee = PROCESSING_FEE;
 
-    // ======================================================
-    // GET TRANSFER FEE
-    // ======================================================
+    const total = subtotal + transferFee + processingFee;
 
-    const transferFee =
-        Number(
-            reservationData.transferFee
-        ) || 0;
-
-
-    // ======================================================
-    // PROCESSING FEE
-    // ======================================================
-
-    const processingFee =
-        PROCESSING_FEE;
-
-
-    // ======================================================
-    // COMPUTE TOTAL
-    // ======================================================
-
-    const total =
-        subtotal +
-        transferFee +
-        processingFee;
-
-
-    // ======================================================
-    // DISPLAY AMOUNTS
-    // ======================================================
 
     setPaymentAmount(
         subtotal,
@@ -242,25 +172,13 @@ function loadReservationAmount() {
     );
 
 
-    console.log(
-        "SUBTOTAL:",
-        subtotal
-    );
+    console.log("SUBTOTAL:", subtotal);
 
-    console.log(
-        "TRANSFER FEE:",
-        transferFee
-    );
+    console.log("TRANSFER FEE:", transferFee);
 
-    console.log(
-        "PROCESSING FEE:",
-        processingFee
-    );
+    console.log("PROCESSING FEE:", processingFee);
 
-    console.log(
-        "TOTAL:",
-        total
-    );
+    console.log("TOTAL:", total);
 
 }
 
@@ -277,92 +195,57 @@ function setPaymentAmount(
 ) {
 
     const itemsTotalElement =
-        document.getElementById(
-            "itemsTotal"
-        );
+        document.getElementById("itemsTotal");
 
     const subtotalElement =
-        document.getElementById(
-            "subtotal"
-        );
+        document.getElementById("subtotal");
 
     const transferFeeElement =
-        document.getElementById(
-            "transferFee"
-        );
+        document.getElementById("transferFee");
 
     const processingFeeElement =
-        document.getElementById(
-            "processingFee"
-        );
+        document.getElementById("processingFee");
 
     const totalElement =
-        document.getElementById(
-            "total"
-        );
+        document.getElementById("total");
 
-
-    // ======================================================
-    // ITEMS TOTAL
-    // ======================================================
 
     if (itemsTotalElement) {
 
         itemsTotalElement.textContent =
-            "₱" +
-            subtotal.toFixed(2);
+            "₱" + subtotal.toFixed(2);
 
     }
 
-
-    // ======================================================
-    // SUBTOTAL
-    // ======================================================
 
     if (subtotalElement) {
 
         subtotalElement.textContent =
-            "₱" +
-            subtotal.toFixed(2);
+            "₱" + subtotal.toFixed(2);
 
     }
 
-
-    // ======================================================
-    // TRANSFER FEE
-    // ======================================================
 
     if (transferFeeElement) {
 
         transferFeeElement.textContent =
-            "₱" +
-            transferFee.toFixed(2);
+            "₱" + transferFee.toFixed(2);
 
     }
 
-
-    // ======================================================
-    // PROCESSING FEE
-    // ======================================================
 
     if (processingFeeElement) {
 
         processingFeeElement.textContent =
-            "₱" +
-            processingFee.toFixed(2);
+            "₱" + processingFee.toFixed(2);
 
     }
 
 
-    // ======================================================
-    // TOTAL
-    // ======================================================
-
     if (totalElement) {
 
         totalElement.textContent =
-            "₱" +
-            total.toFixed(2);
+            "₱" + total.toFixed(2);
 
     }
 
@@ -397,19 +280,8 @@ function getFirstValidValue(values) {
 // ==========================================================
 // GET RESERVATION ORDER IDENTIFIER
 // ==========================================================
-// IMPORTANT:
-// Priority:
-// 1. reservationData.orderId
-// 2. reservationData.orderID
-// 3. reservationData.order_id
-// 4. reservationData.firestoreOrderId
-// 5. pendingOrderId
-// 6. other identifiers
-// ==========================================================
 
-function getReservationOrderIdentifier(
-    reservationData
-) {
+function getReservationOrderIdentifier(reservationData) {
 
     if (!reservationData) {
 
@@ -419,9 +291,7 @@ function getReservationOrderIdentifier(
 
 
     const pendingOrderId =
-        localStorage.getItem(
-            "pendingOrderId"
-        ) || "";
+        localStorage.getItem("pendingOrderId") || "";
 
 
     const possibleIds = [
@@ -459,9 +329,7 @@ function getReservationOrderIdentifier(
     ];
 
 
-    return getFirstValidValue(
-        possibleIds
-    );
+    return getFirstValidValue(possibleIds);
 
 }
 
@@ -470,9 +338,7 @@ function getReservationOrderIdentifier(
 // GET ORDER NUMBER
 // ==========================================================
 
-function getOrderNumber(
-    reservationData
-) {
+function getOrderNumber(reservationData) {
 
     if (!reservationData) {
 
@@ -500,9 +366,7 @@ function getOrderNumber(
 // GET RESERVATION ID
 // ==========================================================
 
-function getReservationId(
-    reservationData
-) {
+function getReservationId(reservationData) {
 
     if (!reservationData) {
 
@@ -530,9 +394,7 @@ function getReservationId(
 // GET PAYMENT METHOD
 // ==========================================================
 
-function getPaymentMethod(
-    reservationData
-) {
+function getPaymentMethod(reservationData) {
 
     if (!reservationData) {
 
@@ -541,24 +403,23 @@ function getPaymentMethod(
     }
 
 
-    const method =
-        getFirstValidValue([
+    const method = getFirstValidValue([
 
-            reservationData.paymentMethod,
+        reservationData.paymentMethod,
 
-            reservationData.payment,
+        reservationData.payment,
 
-            reservationData.paymentMethodName,
+        reservationData.paymentMethodName,
 
-            reservationData.method,
+        reservationData.method,
 
-            reservationData.payment_type,
+        reservationData.payment_type,
 
-            reservationData.paymentType,
+        reservationData.paymentType,
 
-            reservationData.payment_method
+        reservationData.payment_method
 
-        ]);
+    ]);
 
 
     if (!method) {
@@ -577,14 +438,9 @@ function getPaymentMethod(
 // CHECK IF CASH PAYMENT
 // ==========================================================
 
-function isCashPayment(
-    paymentMethod
-) {
+function isCashPayment(paymentMethod) {
 
-    const method =
-        String(
-            paymentMethod || ""
-        )
+    const method = String(paymentMethod || "")
         .trim()
         .toLowerCase();
 
@@ -602,22 +458,219 @@ function isCashPayment(
 
 
 // ==========================================================
+// COMPRESS RECEIPT IMAGE FOR FIRESTORE
+// ==========================================================
+
+async function compressReceiptImage(file) {
+
+    if (!file) {
+
+        throw new Error("Please select a receipt image.");
+
+    }
+
+
+    if (!file.type.startsWith("image/")) {
+
+        throw new Error(
+            "The receipt must be an image file."
+        );
+
+    }
+
+
+    // Read the selected image.
+
+    const imageDataUrl = await new Promise(
+        function(resolve, reject) {
+
+            const reader = new FileReader();
+
+            reader.onload = function() {
+
+                resolve(reader.result);
+
+            };
+
+            reader.onerror = function() {
+
+                reject(
+                    new Error("Could not read the receipt image.")
+                );
+
+            };
+
+            reader.readAsDataURL(file);
+
+        }
+    );
+
+
+    // Load the image so it can be resized.
+
+    const image = await new Promise(
+        function(resolve, reject) {
+
+            const img = new Image();
+
+            img.onload = function() {
+
+                resolve(img);
+
+            };
+
+            img.onerror = function() {
+
+                reject(
+                    new Error(
+                        "The selected receipt image could not be opened."
+                    )
+                );
+
+            };
+
+            img.src = imageDataUrl;
+
+        }
+    );
+
+
+    // Keep the image's aspect ratio.
+
+    const scale = Math.min(
+        1,
+        MAX_RECEIPT_WIDTH / image.width,
+        MAX_RECEIPT_HEIGHT / image.height
+    );
+
+
+    const canvas = document.createElement("canvas");
+
+    canvas.width = Math.max(
+        1,
+        Math.round(image.width * scale)
+    );
+
+    canvas.height = Math.max(
+        1,
+        Math.round(image.height * scale)
+    );
+
+
+    const context = canvas.getContext("2d");
+
+
+    if (!context) {
+
+        throw new Error(
+            "Could not process the receipt image."
+        );
+
+    }
+
+
+    // White background prevents transparent images from
+    // becoming black when converted to JPEG.
+
+    context.fillStyle = "#ffffff";
+
+    context.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    context.drawImage(
+        image,
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    // Convert the image to compressed JPEG Base64.
+
+    let quality = 0.75;
+
+    let base64Data = "";
+
+
+    for (let attempt = 0; attempt < 7; attempt++) {
+
+        const dataUrl = canvas.toDataURL(
+            "image/jpeg",
+            quality
+        );
+
+
+        base64Data = dataUrl.split(",")[1];
+
+
+        if (
+            base64Data &&
+            base64Data.length <= MAX_RECEIPT_BASE64_LENGTH
+        ) {
+
+            return {
+                receiptImage: dataUrl,
+                receiptContentType: "image/jpeg",
+                receiptFileName: file.name || "receipt.jpg",
+                receiptSize: base64Data.length
+            };
+
+        }
+
+
+        quality -= 0.1;
+
+        if (quality < 0.1) {
+
+            quality = 0.1;
+
+        }
+
+    }
+
+
+    throw new Error(
+        "The receipt image is too large to save in Firestore. " +
+        "Please choose a smaller image or take a screenshot " +
+        "of the receipt and upload that instead."
+    );
+
+}
+
+
+// ==========================================================
 // CONTINUE PAYMENT
 // ==========================================================
 
 async function continuePayment() {
 
-    console.log(
-        "========================================"
-    );
+    console.log("========================================");
 
-    console.log(
-        "CONTINUE PAYMENT CLICKED"
-    );
+    console.log("CONTINUE PAYMENT CLICKED");
 
-    console.log(
-        "========================================"
-    );
+    console.log("========================================");
+
+
+    // ======================================================
+    // WAIT FOR AUTHENTICATION TO INITIALIZE
+    // ======================================================
+
+    if (!authReady) {
+
+        alert(
+            "Please wait a moment while your account loads, " +
+            "then try again."
+        );
+
+        return;
+
+    }
 
 
     // ======================================================
@@ -625,24 +678,14 @@ async function continuePayment() {
     // ======================================================
 
     const referenceInput =
-        document.getElementById(
-            "referenceNumber"
-        );
+        document.getElementById("referenceNumber");
 
-
-    // ======================================================
-    // CHECK REFERENCE INPUT
-    // ======================================================
 
     if (!referenceInput) {
 
-        alert(
-            "Reference number input was not found."
-        );
+        alert("Reference number input was not found.");
 
-        console.error(
-            "Missing #referenceNumber"
-        );
+        console.error("Missing #referenceNumber");
 
         return;
 
@@ -654,14 +697,8 @@ async function continuePayment() {
     // ======================================================
 
     const referenceNumber =
-        String(
-            referenceInput.value || ""
-        ).trim();
+        String(referenceInput.value || "").trim();
 
-
-    // ======================================================
-    // REQUIRE REFERENCE NUMBER
-    // ======================================================
 
     if (referenceNumber === "") {
 
@@ -678,6 +715,47 @@ async function continuePayment() {
 
 
     // ======================================================
+    // GET RECEIPT IMAGE
+    // ======================================================
+
+    const receiptInput =
+        document.getElementById("receiptImage");
+
+
+    if (!receiptInput) {
+
+        alert(
+            "Receipt image input was not found.\n\n" +
+            "Please make sure your HTML file input has " +
+            'id="receiptImage".'
+        );
+
+        console.error("Missing #receiptImage");
+
+        return;
+
+    }
+
+
+    const receiptFile =
+        receiptInput.files && receiptInput.files[0];
+
+
+    if (!receiptFile) {
+
+        alert(
+            "Please upload your payment receipt image " +
+            "before continuing."
+        );
+
+        receiptInput.focus();
+
+        return;
+
+    }
+
+
+    // ======================================================
     // GET RESERVATION DATA
     // ======================================================
 
@@ -685,12 +763,9 @@ async function continuePayment() {
 
     try {
 
-        reservationData =
-            JSON.parse(
-                localStorage.getItem(
-                    "reservationData"
-                )
-            );
+        reservationData = JSON.parse(
+            localStorage.getItem("reservationData")
+        );
 
     } catch (error) {
 
@@ -701,10 +776,6 @@ async function continuePayment() {
 
     }
 
-
-    // ======================================================
-    // CHECK RESERVATION DATA
-    // ======================================================
 
     if (!reservationData) {
 
@@ -718,74 +789,24 @@ async function continuePayment() {
     }
 
 
-    console.log(
-        "========================================"
-    );
+    console.log("========================================");
 
-    console.log(
-        "RESERVATION DATA FOR PAYMENT:"
-    );
+    console.log("RESERVATION DATA FOR PAYMENT:");
 
-    console.log(
-        reservationData
-    );
+    console.log(reservationData);
 
-    console.log(
-        "========================================"
-    );
+    console.log("========================================");
 
 
     // ======================================================
-    // GET USER ID
+    // GET AUTHENTICATED USER ID
     // ======================================================
 
-    let userId =
-        reservationData.userId;
-
-
-    // ======================================================
-    // FALLBACK TO LOCAL STORAGE
-    // ======================================================
-
-    if (!userId) {
-
-        userId =
-            localStorage.getItem(
-                "pendingUserId"
-            );
-
-    }
-
-
-    // ======================================================
-    // FALLBACK TO FIREBASE AUTH
-    // ======================================================
-
-    if (
-        !userId &&
-        currentUser
-    ) {
-
-        userId =
-            currentUser.uid;
-
-    }
-
-
-    // ======================================================
-    // CHECK USER ID
-    // ======================================================
-
-    if (!userId) {
+    if (!currentUser) {
 
         alert(
-            "User information was not found.\n\n" +
-            "Please go back to the reservation page " +
-            "and create the reservation again while logged in."
-        );
-
-        console.error(
-            "NO USER ID FOUND"
+            "You must be logged in to submit your payment.\n\n" +
+            "Please log in and try again."
         );
 
         return;
@@ -793,10 +814,31 @@ async function continuePayment() {
     }
 
 
-    console.log(
-        "PAYMENT USER ID:",
-        userId
-    );
+    const userId = currentUser.uid;
+
+
+    // Ensure the reservation belongs to the signed-in user.
+
+    if (
+        reservationData.userId &&
+        reservationData.userId !== userId
+    ) {
+
+        alert(
+            "Your reservation does not match your signed-in account.\n\n" +
+            "Please sign in to the account used to create this reservation."
+        );
+
+        console.error(
+            "RESERVATION USER DOES NOT MATCH AUTHENTICATED USER"
+        );
+
+        return;
+
+    }
+
+
+    console.log("PAYMENT USER ID:", userId);
 
 
     // ======================================================
@@ -804,9 +846,7 @@ async function continuePayment() {
     // ======================================================
 
     const orderIdentifier =
-        getReservationOrderIdentifier(
-            reservationData
-        );
+        getReservationOrderIdentifier(reservationData);
 
 
     // ======================================================
@@ -814,9 +854,7 @@ async function continuePayment() {
     // ======================================================
 
     const orderNumber =
-        getOrderNumber(
-            reservationData
-        );
+        getOrderNumber(reservationData);
 
 
     // ======================================================
@@ -824,9 +862,7 @@ async function continuePayment() {
     // ======================================================
 
     const reservationId =
-        getReservationId(
-            reservationData
-        );
+        getReservationId(reservationData);
 
 
     console.log(
@@ -850,9 +886,7 @@ async function continuePayment() {
     // ======================================================
 
     const subtotal =
-        Number(
-            reservationData.subtotal
-        ) || 0;
+        Number(reservationData.subtotal) || 0;
 
 
     // ======================================================
@@ -860,17 +894,14 @@ async function continuePayment() {
     // ======================================================
 
     const transferFee =
-        Number(
-            reservationData.transferFee
-        ) || 0;
+        Number(reservationData.transferFee) || 0;
 
 
     // ======================================================
     // PROCESSING FEE
     // ======================================================
 
-    const processingFee =
-        PROCESSING_FEE;
+    const processingFee = PROCESSING_FEE;
 
 
     // ======================================================
@@ -888,20 +919,10 @@ async function continuePayment() {
     // ======================================================
 
     const paymentMethod =
-        getPaymentMethod(
-            reservationData
-        );
+        getPaymentMethod(reservationData);
 
 
-    // ======================================================
-    // CASH CHECK
-    // ======================================================
-
-    if (
-        isCashPayment(
-            paymentMethod
-        )
-    ) {
+    if (isCashPayment(paymentMethod)) {
 
         console.warn(
             "This payment page is being used for a CASH payment."
@@ -911,461 +932,351 @@ async function continuePayment() {
 
 
     // ======================================================
-    // PAYMENT DATA
-    // ======================================================
-    // The reference number is stored in MANY fields so the
-    // admin dashboard can find it regardless of which alias
-    // it checks.
-    // ======================================================
-
-    const paymentData = {
-
-        // --------------------------------------------------
-        // PAYMENT DOCUMENT
-        // --------------------------------------------------
-
-        userId:
-            userId,
-
-
-        // --------------------------------------------------
-        // EXACT FIRESTORE ORDER ID
-        // --------------------------------------------------
-
-        orderId:
-            orderIdentifier,
-
-        orderID:
-            orderIdentifier,
-
-        order_id:
-            orderIdentifier,
-
-        firestoreOrderId:
-            orderIdentifier,
-
-        transactionOrderId:
-            orderIdentifier,
-
-        checkoutOrderId:
-            orderIdentifier,
-
-
-        // --------------------------------------------------
-        // ORDER NUMBER
-        // --------------------------------------------------
-
-        orderNumber:
-            orderNumber,
-
-        orderNo:
-            orderNumber,
-
-
-        // --------------------------------------------------
-        // RESERVATION IDENTIFIERS
-        // --------------------------------------------------
-
-        reservationId:
-            reservationId,
-
-        reservationID:
-            reservationId,
-
-        reservationNumber:
-            reservationData.reservationNumber || "",
-
-        reservationNo:
-            reservationData.reservationNo || "",
-
-
-        // --------------------------------------------------
-        // PAYMENT REFERENCE
-        // --------------------------------------------------
-        // THIS IS THE IMPORTANT PART.
-        // The exact number entered by the customer is saved.
-        // --------------------------------------------------
-
-        referenceNumber:
-            referenceNumber,
-
-        referenceNo:
-            referenceNumber,
-
-        reference:
-            referenceNumber,
-
-        paymentReference:
-            referenceNumber,
-
-        paymentReferenceNumber:
-            referenceNumber,
-
-        paymentRef:
-            referenceNumber,
-
-        paymentRefNumber:
-            referenceNumber,
-
-        gcashReference:
-            referenceNumber,
-
-        gcashReferenceNumber:
-            referenceNumber,
-
-        gcashRef:
-            referenceNumber,
-
-        gcashRefNumber:
-            referenceNumber,
-
-        paymongoReference:
-            referenceNumber,
-
-        paymongoReferenceNumber:
-            referenceNumber,
-
-        paymongoRef:
-            referenceNumber,
-
-        transactionReference:
-            referenceNumber,
-
-        transactionReferenceNumber:
-            referenceNumber,
-
-        externalReference:
-            referenceNumber,
-
-        externalReferenceNumber:
-            referenceNumber,
-
-
-        // --------------------------------------------------
-        // AMOUNTS
-        // --------------------------------------------------
-
-        subtotal:
-            subtotal,
-
-        transferFee:
-            transferFee,
-
-        processingFee:
-            processingFee,
-
-        total:
-            total,
-
-        amount:
-            total,
-
-        totalAmount:
-            total,
-
-        amountPaid:
-            total,
-
-        amountDue:
-            total,
-
-
-        // --------------------------------------------------
-        // PAYMENT METHOD
-        // --------------------------------------------------
-
-        paymentMethod:
-            paymentMethod,
-
-        paymentMethodName:
-            paymentMethod,
-
-        method:
-            paymentMethod,
-
-        payment:
-            paymentMethod,
-
-        payment_type:
-            paymentMethod,
-
-        paymentType:
-            paymentMethod,
-
-        payment_method:
-            paymentMethod,
-
-
-        // --------------------------------------------------
-        // STATUS
-        // --------------------------------------------------
-
-        status:
-            "Pending",
-
-        paymentStatus:
-            "Pending",
-
-
-        // --------------------------------------------------
-        // DATE
-        // --------------------------------------------------
-
-        createdAt:
-            serverTimestamp()
-
-    };
-
-
-    // ======================================================
-    // DEBUG PAYMENT DATA
-    // ======================================================
-
-    console.log(
-        "========================================"
-    );
-
-    console.log(
-        "PAYMENT DATA TO FIRESTORE:"
-    );
-
-    console.log(
-        paymentData
-    );
-
-    console.log(
-        "========================================"
-    );
-
-    console.log(
-        "REFERENCE NUMBER:",
-        referenceNumber
-    );
-
-    console.log(
-        "ORDER ID:",
-        orderIdentifier
-    );
-
-    console.log(
-        "ORDER NUMBER:",
-        orderNumber
-    );
-
-    console.log(
-        "USER ID:",
-        userId
-    );
-
-    console.log(
-        "PAYMENT METHOD:",
-        paymentMethod
-    );
-
-    console.log(
-        "TOTAL:",
-        total
-    );
-
-    console.log(
-        "========================================"
-    );
-
-
-    // ======================================================
     // DISABLE BUTTON WHILE SAVING
     // ======================================================
 
     const continueButton =
-        document.querySelector(
-            "#continuePayment"
-        ) ||
-        document.querySelector(
-            "#continueBtn"
-        ) ||
-        document.querySelector(
-            ".continue-payment"
-        );
+        document.querySelector("#continuePayment") ||
+        document.querySelector("#continueBtn") ||
+        document.querySelector(".continue-payment");
 
 
     if (continueButton) {
 
-        continueButton.disabled =
-            true;
+        continueButton.disabled = true;
 
-        continueButton.style.opacity =
-            "0.6";
+        continueButton.style.opacity = "0.6";
 
     }
 
 
     // ======================================================
-    // SAVE PAYMENT TO FIRESTORE
+    // PROCESS AND SAVE PAYMENT
     // ======================================================
 
     try {
 
-        // --------------------------------------------------
+        // ==================================================
+        // COMPRESS RECEIPT IMAGE
+        // ==================================================
+
+        console.log("Compressing receipt image...");
+
+
+        const receiptData =
+            await compressReceiptImage(receiptFile);
+
+
+        console.log(
+            "RECEIPT IMAGE PROCESSED:",
+            receiptData.receiptFileName
+        );
+
+        console.log(
+            "RECEIPT BASE64 LENGTH:",
+            receiptData.receiptSize
+        );
+
+
+        // ==================================================
+        // PAYMENT DATA
+        // ==================================================
+
+        const paymentData = {
+
+            // --------------------------------------------------
+            // USER
+            // --------------------------------------------------
+
+            userId: userId,
+
+
+            // --------------------------------------------------
+            // ORDER IDENTIFIERS
+            // --------------------------------------------------
+
+            orderId: orderIdentifier,
+
+            orderID: orderIdentifier,
+
+            order_id: orderIdentifier,
+
+            firestoreOrderId: orderIdentifier,
+
+            transactionOrderId: orderIdentifier,
+
+            checkoutOrderId: orderIdentifier,
+
+
+            // --------------------------------------------------
+            // ORDER NUMBER
+            // --------------------------------------------------
+
+            orderNumber: orderNumber,
+
+            orderNo: orderNumber,
+
+
+            // --------------------------------------------------
+            // RESERVATION IDENTIFIERS
+            // --------------------------------------------------
+
+            reservationId: reservationId,
+
+            reservationID: reservationId,
+
+            reservationNumber:
+                reservationData.reservationNumber || "",
+
+            reservationNo:
+                reservationData.reservationNo || "",
+
+
+            // --------------------------------------------------
+            // PAYMENT REFERENCE
+            // --------------------------------------------------
+
+            referenceNumber: referenceNumber,
+
+            referenceNo: referenceNumber,
+
+            reference: referenceNumber,
+
+            paymentReference: referenceNumber,
+
+            paymentReferenceNumber: referenceNumber,
+
+            paymentRef: referenceNumber,
+
+            paymentRefNumber: referenceNumber,
+
+            gcashReference: referenceNumber,
+
+            gcashReferenceNumber: referenceNumber,
+
+            gcashRef: referenceNumber,
+
+            gcashRefNumber: referenceNumber,
+
+            paymongoReference: referenceNumber,
+
+            paymongoReferenceNumber: referenceNumber,
+
+            paymongoRef: referenceNumber,
+
+            transactionReference: referenceNumber,
+
+            transactionReferenceNumber: referenceNumber,
+
+            externalReference: referenceNumber,
+
+            externalReferenceNumber: referenceNumber,
+
+
+            // --------------------------------------------------
+            // RECEIPT IMAGE — STORED DIRECTLY IN FIRESTORE
+            // --------------------------------------------------
+
+            receiptImage: receiptData.receiptImage,
+
+            receiptFileName: receiptData.receiptFileName,
+
+            receiptContentType: receiptData.receiptContentType,
+
+            receiptSize: receiptData.receiptSize,
+
+
+            // --------------------------------------------------
+            // AMOUNTS
+            // --------------------------------------------------
+
+            subtotal: subtotal,
+
+            transferFee: transferFee,
+
+            processingFee: processingFee,
+
+            total: total,
+
+            amount: total,
+
+            totalAmount: total,
+
+            amountPaid: total,
+
+            amountDue: total,
+
+
+            // --------------------------------------------------
+            // PAYMENT METHOD
+            // --------------------------------------------------
+
+            paymentMethod: paymentMethod,
+
+            paymentMethodName: paymentMethod,
+
+            method: paymentMethod,
+
+            payment: paymentMethod,
+
+            payment_type: paymentMethod,
+
+            paymentType: paymentMethod,
+
+            payment_method: paymentMethod,
+
+
+            // --------------------------------------------------
+            // STATUS
+            // --------------------------------------------------
+
+            status: "Pending",
+
+            paymentStatus: "Pending",
+
+
+            // --------------------------------------------------
+            // DATE
+            // --------------------------------------------------
+
+            createdAt: serverTimestamp()
+
+        };
+
+
+        console.log("========================================");
+
+        console.log("PAYMENT DATA TO FIRESTORE:");
+
+        // Do not print the full Base64 image to the console.
+        console.log({
+            ...paymentData,
+            receiptImage: "[Receipt image data omitted]"
+        });
+
+        console.log("========================================");
+
+
+        // ==================================================
         // CREATE PAYMENT DOCUMENT
-        // --------------------------------------------------
+        // ==================================================
 
-        const paymentRef =
-            await addDoc(
-
-                collection(
-                    db,
-                    "payments"
-                ),
-
-                paymentData
-
-            );
-
-
-        console.log(
-            "========================================"
+        const paymentRef = await addDoc(
+            collection(db, "payments"),
+            paymentData
         );
 
-        console.log(
-            "PAYMENT SAVED SUCCESSFULLY"
-        );
 
-        console.log(
-            "PAYMENT DOCUMENT ID:",
-            paymentRef.id
-        );
+        console.log("========================================");
 
-        console.log(
-            "REFERENCE SAVED:",
-            referenceNumber
-        );
+        console.log("PAYMENT SAVED SUCCESSFULLY");
 
-        console.log(
-            "ORDER ID SAVED:",
-            orderIdentifier
-        );
+        console.log("PAYMENT DOCUMENT ID:", paymentRef.id);
 
-        console.log(
-            "========================================"
-        );
+        console.log("REFERENCE SAVED:", referenceNumber);
+
+        console.log("ORDER ID SAVED:", orderIdentifier);
+
+        console.log("RECEIPT SAVED DIRECTLY IN FIRESTORE");
+
+        console.log("========================================");
 
 
         // ==================================================
         // UPDATE ORIGINAL ORDER
-        // ==================================================
-        // This is the major fix.
-        //
-        // If orderIdentifier is the actual Firestore
-        // document ID, the reference is also written directly
-        // to:
-        //
-        // orders/{orderIdentifier}
-        //
-        // The admin dashboard can therefore read the reference
-        // directly from the order.
         // ==================================================
 
         if (orderIdentifier) {
 
             try {
 
-                const orderDocRef =
-                    doc(
-                        db,
-                        "orders",
-                        orderIdentifier
-                    );
+                const orderDocRef = doc(
+                    db,
+                    "orders",
+                    orderIdentifier
+                );
 
 
                 const orderPaymentUpdate = {
 
                     // --------------------------------------
-                    // REFERENCE
+                    // REFERENCE FIELDS
                     // --------------------------------------
 
-                    referenceNumber:
-                        referenceNumber,
+                    referenceNumber: referenceNumber,
 
-                    referenceNo:
-                        referenceNumber,
+                    referenceNo: referenceNumber,
 
-                    reference:
-                        referenceNumber,
+                    reference: referenceNumber,
 
-                    paymentReference:
-                        referenceNumber,
+                    paymentReference: referenceNumber,
 
-                    paymentReferenceNumber:
-                        referenceNumber,
+                    paymentReferenceNumber: referenceNumber,
 
-                    paymentRef:
-                        referenceNumber,
+                    paymentRef: referenceNumber,
 
-                    paymentRefNumber:
-                        referenceNumber,
+                    paymentRefNumber: referenceNumber,
 
-                    gcashReference:
-                        referenceNumber,
+                    gcashReference: referenceNumber,
 
-                    gcashReferenceNumber:
-                        referenceNumber,
+                    gcashReferenceNumber: referenceNumber,
 
-                    gcashRef:
-                        referenceNumber,
+                    gcashRef: referenceNumber,
 
-                    gcashRefNumber:
-                        referenceNumber,
+                    gcashRefNumber: referenceNumber,
 
-                    paymongoReference:
-                        referenceNumber,
+                    paymongoReference: referenceNumber,
 
-                    paymongoReferenceNumber:
-                        referenceNumber,
+                    paymongoReferenceNumber: referenceNumber,
 
-                    paymongoRef:
-                        referenceNumber,
+                    paymongoRef: referenceNumber,
 
-                    transactionReference:
-                        referenceNumber,
+                    transactionReference: referenceNumber,
 
-                    transactionReferenceNumber:
-                        referenceNumber,
+                    transactionReferenceNumber: referenceNumber,
+
+
+                    // --------------------------------------
+                    // RECEIPT IMAGE
+                    // --------------------------------------
+
+                    receiptImage: receiptData.receiptImage,
+
+                    receiptFileName: receiptData.receiptFileName,
+
+                    receiptContentType:
+                        receiptData.receiptContentType,
+
+                    receiptSize: receiptData.receiptSize,
 
 
                     // --------------------------------------
                     // PAYMENT INFORMATION
                     // --------------------------------------
 
-                    paymentStatus:
-                        "Pending",
+                    paymentStatus: "Pending",
 
-                    paymentMethod:
-                        paymentMethod,
+                    paymentMethod: paymentMethod,
 
-                    paymentMethodName:
-                        paymentMethod,
+                    paymentMethodName: paymentMethod,
 
-                    paymentReferenceId:
-                        paymentRef.id,
+                    paymentReferenceId: paymentRef.id,
 
 
                     // --------------------------------------
                     // AMOUNTS
                     // --------------------------------------
 
-                    paymentAmount:
-                        total,
+                    paymentAmount: total,
 
-                    amountPaid:
-                        total,
+                    amountPaid: total,
 
 
                     // --------------------------------------
                     // UPDATED DATE
                     // --------------------------------------
 
-                    updatedAt:
-                        serverTimestamp()
+                    updatedAt: serverTimestamp()
 
                 };
 
@@ -1377,7 +1288,7 @@ async function continuePayment() {
 
 
                 console.log(
-                    "ORDER UPDATED WITH PAYMENT REFERENCE"
+                    "ORDER UPDATED WITH PAYMENT REFERENCE AND RECEIPT"
                 );
 
                 console.log(
@@ -1390,26 +1301,18 @@ async function continuePayment() {
                     referenceNumber
                 );
 
-            }
+            } catch (orderUpdateError) {
 
-            catch (orderUpdateError) {
-
-                // ------------------------------------------------
-                // IMPORTANT:
-                // Payment has already been successfully saved.
-                //
-                // If Firestore rules prevent updating the order,
-                // we DO NOT delete the successful payment.
-                // The admin can still find it through the payments
-                // collection using orderId.
-                // ------------------------------------------------
+                // The payment document was already created.
+                // Keep it so the admin can still find the payment
+                // and receipt in the payments collection.
 
                 console.warn(
                     "PAYMENT SAVED, BUT ORDER UPDATE FAILED."
                 );
 
                 console.warn(
-                    "This may be caused by Firestore rules."
+                    "Check Firestore security rules and the order ID."
                 );
 
                 console.warn(
@@ -1424,20 +1327,18 @@ async function continuePayment() {
 
             }
 
-        }
-
-        else {
+        } else {
 
             console.warn(
                 "NO EXACT ORDER ID WAS FOUND."
             );
 
             console.warn(
-                "Payment was still saved."
+                "Payment and receipt were saved in the payments collection."
             );
 
             console.warn(
-                "Make sure reservation.js saves orderId."
+                "Make sure reservation.js saves the actual Firestore orderId."
             );
 
         }
@@ -1447,49 +1348,43 @@ async function continuePayment() {
         // SAVE PAYMENT LOCALLY
         // ==================================================
 
+        // Keep the local copy small. The full receipt image
+        // is stored in Firestore, not in localStorage.
+
         const savedPaymentData = {
 
-            paymentId:
-                paymentRef.id,
+            paymentId: paymentRef.id,
 
 
             // ----------------------------------------------
-            // EXACT ORDER ID
+            // ORDER IDENTIFIERS
             // ----------------------------------------------
 
-            orderId:
-                orderIdentifier,
+            orderId: orderIdentifier,
 
-            orderID:
-                orderIdentifier,
+            orderID: orderIdentifier,
 
-            order_id:
-                orderIdentifier,
+            order_id: orderIdentifier,
 
-            firestoreOrderId:
-                orderIdentifier,
+            firestoreOrderId: orderIdentifier,
 
 
             // ----------------------------------------------
             // ORDER NUMBER
             // ----------------------------------------------
 
-            orderNumber:
-                orderNumber,
+            orderNumber: orderNumber,
 
-            orderNo:
-                orderNumber,
+            orderNo: orderNumber,
 
 
             // ----------------------------------------------
             // RESERVATION IDENTIFIERS
             // ----------------------------------------------
 
-            reservationId:
-                reservationId,
+            reservationId: reservationId,
 
-            reservationID:
-                reservationId,
+            reservationID: reservationId,
 
             reservationNumber:
                 reservationData.reservationNumber || "",
@@ -1502,112 +1397,91 @@ async function continuePayment() {
             // USER
             // ----------------------------------------------
 
-            userId:
-                userId,
+            userId: userId,
 
 
             // ----------------------------------------------
             // REFERENCES
             // ----------------------------------------------
 
-            referenceNumber:
-                referenceNumber,
+            referenceNumber: referenceNumber,
 
-            referenceNo:
-                referenceNumber,
+            referenceNo: referenceNumber,
 
-            reference:
-                referenceNumber,
+            reference: referenceNumber,
 
-            paymentReference:
-                referenceNumber,
+            paymentReference: referenceNumber,
 
-            paymentReferenceNumber:
-                referenceNumber,
+            paymentReferenceNumber: referenceNumber,
 
-            paymentRef:
-                referenceNumber,
+            paymentRef: referenceNumber,
 
-            paymentRefNumber:
-                referenceNumber,
+            paymentRefNumber: referenceNumber,
 
-            gcashReference:
-                referenceNumber,
+            gcashReference: referenceNumber,
 
-            gcashReferenceNumber:
-                referenceNumber,
+            gcashReferenceNumber: referenceNumber,
 
-            paymongoReference:
-                referenceNumber,
+            paymongoReference: referenceNumber,
+
+
+            // ----------------------------------------------
+            // RECEIPT METADATA
+            // ----------------------------------------------
+
+            receiptFileName: receiptData.receiptFileName,
+
+            receiptContentType: receiptData.receiptContentType,
 
 
             // ----------------------------------------------
             // AMOUNTS
             // ----------------------------------------------
 
-            subtotal:
-                subtotal,
+            subtotal: subtotal,
 
-            transferFee:
-                transferFee,
+            transferFee: transferFee,
 
-            processingFee:
-                processingFee,
+            processingFee: processingFee,
 
-            total:
-                total,
+            total: total,
 
-            amount:
-                total,
+            amount: total,
 
-            totalAmount:
-                total,
+            totalAmount: total,
 
-            amountPaid:
-                total,
+            amountPaid: total,
 
-            amountDue:
-                total,
+            amountDue: total,
 
 
             // ----------------------------------------------
             // PAYMENT METHOD
             // ----------------------------------------------
 
-            paymentMethod:
-                paymentMethod,
+            paymentMethod: paymentMethod,
 
-            paymentMethodName:
-                paymentMethod,
+            paymentMethodName: paymentMethod,
 
-            method:
-                paymentMethod,
+            method: paymentMethod,
 
-            payment:
-                paymentMethod,
+            payment: paymentMethod,
 
 
             // ----------------------------------------------
             // STATUS
             // ----------------------------------------------
 
-            status:
-                "Pending",
+            status: "Pending",
 
-            paymentStatus:
-                "Pending"
+            paymentStatus: "Pending"
 
         };
 
 
         localStorage.setItem(
-
             "paymentData",
-
-            JSON.stringify(
-                savedPaymentData
-            )
-
+            JSON.stringify(savedPaymentData)
         );
 
 
@@ -1615,44 +1489,25 @@ async function continuePayment() {
         // UPDATE RESERVATION DATA
         // ==================================================
 
-        reservationData.userId =
-            userId;
+        reservationData.userId = userId;
 
+        reservationData.processingFee = processingFee;
 
-        reservationData.processingFee =
-            processingFee;
+        reservationData.total = total;
 
+        reservationData.referenceNumber = referenceNumber;
 
-        reservationData.total =
-            total;
+        reservationData.referenceNo = referenceNumber;
 
+        reservationData.reference = referenceNumber;
 
-        reservationData.referenceNumber =
-            referenceNumber;
+        reservationData.paymentReference = referenceNumber;
 
+        reservationData.paymentReferenceNumber = referenceNumber;
 
-        reservationData.referenceNo =
-            referenceNumber;
+        reservationData.paymentRef = referenceNumber;
 
-
-        reservationData.reference =
-            referenceNumber;
-
-
-        reservationData.paymentReference =
-            referenceNumber;
-
-
-        reservationData.paymentReferenceNumber =
-            referenceNumber;
-
-
-        reservationData.paymentRef =
-            referenceNumber;
-
-
-        reservationData.paymentRefNumber =
-            referenceNumber;
+        reservationData.paymentRefNumber = referenceNumber;
 
 
         // --------------------------------------------------
@@ -1661,17 +1516,13 @@ async function continuePayment() {
 
         if (orderIdentifier) {
 
-            reservationData.orderId =
-                orderIdentifier;
+            reservationData.orderId = orderIdentifier;
 
-            reservationData.orderID =
-                orderIdentifier;
+            reservationData.orderID = orderIdentifier;
 
-            reservationData.order_id =
-                orderIdentifier;
+            reservationData.order_id = orderIdentifier;
 
-            reservationData.firestoreOrderId =
-                orderIdentifier;
+            reservationData.firestoreOrderId = orderIdentifier;
 
         }
 
@@ -1682,11 +1533,9 @@ async function continuePayment() {
 
         if (orderNumber) {
 
-            reservationData.orderNumber =
-                orderNumber;
+            reservationData.orderNumber = orderNumber;
 
-            reservationData.orderNo =
-                orderNumber;
+            reservationData.orderNo = orderNumber;
 
         }
 
@@ -1695,11 +1544,20 @@ async function continuePayment() {
         // SAVE PAYMENT METHOD
         // --------------------------------------------------
 
-        reservationData.paymentMethod =
-            paymentMethod;
+        reservationData.paymentMethod = paymentMethod;
 
-        reservationData.payment =
-            paymentMethod;
+        reservationData.payment = paymentMethod;
+
+
+        // --------------------------------------------------
+        // SAVE RECEIPT METADATA
+        // --------------------------------------------------
+
+        reservationData.receiptFileName =
+            receiptData.receiptFileName;
+
+        reservationData.receiptContentType =
+            receiptData.receiptContentType;
 
 
         // --------------------------------------------------
@@ -1707,13 +1565,8 @@ async function continuePayment() {
         // --------------------------------------------------
 
         localStorage.setItem(
-
             "reservationData",
-
-            JSON.stringify(
-                reservationData
-            )
-
+            JSON.stringify(reservationData)
         );
 
 
@@ -1746,7 +1599,11 @@ async function continuePayment() {
             "\n" +
 
             "Total: ₱" +
-            total.toFixed(2)
+            total.toFixed(2) +
+
+            "\n\n" +
+
+            "Your receipt has been submitted for verification."
 
         );
 
@@ -1755,35 +1612,19 @@ async function continuePayment() {
         // GO TO ORDERS
         // ==================================================
 
-        window.location.href =
-            "orders.html";
+        window.location.href = "orders.html";
 
-    }
+    } catch (error) {
 
+        console.error("=================================");
 
-    catch (error) {
+        console.error("PAYMENT FIRESTORE ERROR");
 
-        console.error(
-            "================================="
-        );
+        console.error("CODE:", error.code);
 
-        console.error(
-            "PAYMENT FIRESTORE ERROR"
-        );
+        console.error("MESSAGE:", error.message);
 
-        console.error(
-            "CODE:",
-            error.code
-        );
-
-        console.error(
-            "MESSAGE:",
-            error.message
-        );
-
-        console.error(
-            "================================="
-        );
+        console.error("=================================");
 
 
         alert(
@@ -1800,18 +1641,19 @@ async function continuePayment() {
 
         );
 
+    } finally {
 
-        // --------------------------------------------------
-        // RE-ENABLE BUTTON
-        // --------------------------------------------------
+        // If the page is still here, re-enable the button.
+        // A successful payment will redirect to orders.html.
 
-        if (continueButton) {
+        if (
+            continueButton &&
+            window.location.pathname.endsWith("payment.html")
+        ) {
 
-            continueButton.disabled =
-                false;
+            continueButton.disabled = false;
 
-            continueButton.style.opacity =
-                "1";
+            continueButton.style.opacity = "1";
 
         }
 
@@ -1824,8 +1666,7 @@ async function continuePayment() {
 // MAKE FUNCTION AVAILABLE TO HTML
 // ==========================================================
 
-window.continuePayment =
-    continuePayment;
+window.continuePayment = continuePayment;
 
 
 // ==========================================================

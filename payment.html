@@ -1,119 +1,127 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Google Font -->
+    <title>CASWear | Payment</title>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap"
+        rel="stylesheet"
+    >
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <title>CASWear</title>
 </head>
 
 <body class="bg-color">
 
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
 
+        <div class="logo-container">
+            <img src="logo.png" class="logo-img" alt="CASWear Logo">
+        </div>
 
-<nav class="navbar">
+        <div class="nav-links">
+            <a href="home.html">HOME</a>
+            <a href="apparel.html">APPAREL</a>
+            <a href="cart.html">CART</a>
+            <a href="orders.html">ORDERS</a>
+            <a href="about.html">ABOUT</a>
+        </div>
 
-    <div class="logo-container">
-        <img src="logo.png" class="logo-img">
-    </div>
+        <div class="nav-right">
 
-    <div class="nav-links">
-        <a href="home.html">HOME</a>
-        <a href="apparel.html">APPAREL</a>
-        <a href="cart.html">CART</a>
-        <a href="orders.html">ORDERS</a>
-        <a href="about.html">ABOUT</a>
-    </div>
+            <!-- Notifications -->
+            <div class="notification">
 
-    <div class="nav-right">
+                <button
+                    class="notif-btn"
+                    type="button"
+                    onclick="toggleNotif()"
+                    aria-label="Notifications"
+                >
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-count" id="notifCount">0</span>
+                </button>
 
-    
+                <div class="notif-dropdown" id="notifDropdown">
+                    <h3>Notifications</h3>
 
-        <div class="notification">
-
-            <button class="notif-btn" onclick="toggleNotif()">
-
-                <i class="fa-solid fa-bell"></i>
-
-                <span class="notif-count" id="notifCount">0</span>
-
-            </button>
-
-            <div class="notif-dropdown" id="notifDropdown">
-
-                <h3>Notifications</h3>
-
-                <div id="notifList">
-
-                    <p class="no-notif">No notifications.</p>
-
+                    <div id="notifList">
+                        <p class="no-notif">No notifications.</p>
+                    </div>
                 </div>
 
             </div>
 
+            <!-- Profile -->
+            <div class="profile">
+
+                <button
+                    class="profile-btn"
+                    type="button"
+                    onclick="toggleProfile()"
+                >
+                    <img
+                        src="logo.png"
+                        class="profile-img"
+                        id="navProfilePicture"
+                        alt="Profile"
+                    >
+
+                    <span id="userName">Hi, CASmate!</span>
+
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+
+                <div class="profile-dropdown" id="profileDropdown">
+
+                    <a href="profile.html">
+                        <i class="fa-solid fa-user"></i>
+                        View Profile
+                    </a>
+
+                    <a href="settings.html">
+                        <i class="fa-solid fa-gear"></i>
+                        Settings
+                    </a>
+
+                    <a href="help.html">
+                        <i class="fa-solid fa-circle-question"></i>
+                        Help
+                    </a>
+
+                    <a href="javascript:void(0);" onclick="logout()">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                        Logout
+                    </a>
+
+                </div>
+            </div>
+
         </div>
+    </nav>
 
-    
 
-    <div class="profile">
-
-    <button class="profile-btn" onclick="toggleProfile()" type="button">
-
-        <img src="logo.png"
-            class="profile-img"
-            id="navProfilePicture"
-            alt="Profile">
-        <span id="userName">Hi, CASmate!</span>
-
-        <i class="fa-solid fa-chevron-down"></i>
-
-   </button>
-
- <div class="profile-dropdown" id="profileDropdown">
-
-        <a href="profile.html">
-            <i class="fa-solid fa-user"></i>
-            View Profile
-        </a>
-
-        <a href="settings.html">
-            <i class="fa-solid fa-gear"></i>
-            Settings
-        </a>
-
-        <a href="help.html">
-            <i class="fa-solid fa-circle-question"></i>
-            Help
-        </a>
-
-        <a href="javascript:void(0);" onclick="logout()">
-    <i class="fa-solid fa-right-from-bracket"></i>
-    Logout
-    </a>
-
-    </div>
-
-</div>
-</div>
-    </div>
-
-</nav>
- <!-- PAYMENT PAGE -->
+    <!-- PAYMENT PAGE -->
     <main class="payment-page">
 
-        <!-- LEFT SIDE -->
+        <!-- LEFT SIDE: QR CODE -->
         <section class="qr-section">
 
             <div class="qr-card">
@@ -126,49 +134,148 @@
         </section>
 
 
-        <!-- RIGHT SIDE -->
+        <!-- RIGHT SIDE: PAYMENT SUMMARY -->
         <section class="summary-section">
 
             <div class="summary-card">
 
                 <h2>Payment Summary</h2>
 
+                <!-- Reference Number -->
                 <div class="summary-row reference-row">
-            <span>Reference No:</span>
 
-                <input
-                type="text"
-                id="referenceNumber"
-                placeholder=""
-                maxlength="30"
-    >
+                    <label for="referenceNumber">
+                        Reference No:
+                    </label>
+
+                    <input
+                        type="text"
+                        id="referenceNumber"
+                        placeholder="Enter reference number"
+                        maxlength="30"
+                        autocomplete="off"
+                        required
+                    >
+
                 </div>
 
                 <div class="divider"></div>
 
+                <!-- Subtotal -->
                 <div class="summary-row">
                     <span>Subtotal:</span>
-                    <span id="subtotal">0.00</span>
+                    <span id="subtotal">₱0.00</span>
                 </div>
 
+                <!-- Transfer Fee -->
                 <div class="summary-row">
-            <span>Processing Fee:</span>
-            <span id="processingFee">₱10.00</span>
-            </div>
+                    <span>Transfer Fee:</span>
+                    <span id="transferFee">₱0.00</span>
+                </div>
+
+                <!-- Processing Fee -->
+                <div class="summary-row">
+                    <span>Processing Fee:</span>
+                    <span id="processingFee">₱10.00</span>
+                </div>
 
                 <div class="divider"></div>
 
+                <!-- Total -->
                 <div class="summary-row total">
                     <span>Total:</span>
-                    <span id="total">0.00</span>
+                    <span id="total">₱0.00</span>
+                </div>
+
+
+                <!-- PAYMENT RECEIPT UPLOAD -->
+                <div class="receipt-upload">
+
+                    <p class="receipt-description">
+                        Upload a screenshot or photo of your payment.
+                    </p>
+
+                    <!-- Upload Box -->
+                    <label
+                        for="receiptImage"
+                        class="upload-box"
+                        id="uploadBox"
+                    >
+
+                        <div class="upload-icon">
+                            <i class="fa-solid fa-cloud-arrow-up"></i>
+                        </div>
+
+                        <div class="upload-text">
+
+                            <span class="upload-title">
+                                Click to upload your receipt
+                            </span>
+
+                            <span class="upload-subtitle">
+                                PNG, JPG or JPEG · Max 5 MB
+                            </span>
+
+                        </div>
+
+                        <span class="upload-button">
+                            Choose File
+                        </span>
+
+                    </label>
+
+                    <!-- Hidden File Input -->
+                    <input
+                        type="file"
+                        id="receiptImage"
+                        accept="image/png, image/jpeg"
+                        hidden
+                    >
+
+                    <!-- Image Preview -->
+                    <div
+                        class="receipt-preview-container"
+                        id="receiptPreviewContainer"
+                    >
+
+                        <img
+                            id="receiptPreview"
+                            src=""
+                            alt="Payment receipt preview"
+                        >
+
+                        <div class="receipt-file-info">
+
+                            <i class="fa-solid fa-file-image"></i>
+
+                            <span id="receiptFileName">
+                                receipt.jpg
+                            </span>
+
+                            <button
+                                type="button"
+                                id="removeReceipt"
+                                aria-label="Remove receipt"
+                                title="Remove receipt"
+                            >
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+
+                        </div>
+                    </div>
+
                 </div>
 
                 <div class="divider"></div>
 
             </div>
 
-
-            <button class="continue-button" onclick="continuePayment()">
+            <!-- Continue Payment -->
+            <button
+                type="button"
+                class="continue-button"
+                onclick="continuePayment()"
+            >
                 Continue Paying Online
             </button>
 
@@ -177,7 +284,12 @@
     </main>
 
 
+    <!-- Receipt Preview JavaScript -->
+    <script src="receipt-preview.js"></script>
+
+    <!-- Existing Website JavaScript -->
     <script type="module" src="payment.js"></script>
     <script type="module" src="home.js"></script>
+
 </body>
 </html>
