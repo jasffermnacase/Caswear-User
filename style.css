@@ -4224,3 +4224,159 @@ body {
 
 }
 
+/* ===== PAYMENT RECEIPT UPLOAD ===== */
+
+.receipt-upload {
+    width: 100%;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+}
+
+.receipt-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    color: #292929;
+    margin-bottom: 6px;
+}
+
+.receipt-description {
+    font-size: 12px;
+    color: #777;
+    margin: 0 0 12px;
+    line-height: 1.5;
+}
+
+/* Upload box */
+.upload-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 25px 15px;
+    border: 2px dashed #c9b8a6;
+    border-radius: 12px;
+    background: #faf8f5;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+    border-color: #8b6b4a;
+    background: #f4eee7;
+    transform: translateY(-2px);
+}
+
+/* Upload icon */
+.upload-icon {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #eee3d7;
+    color: #795b40;
+    font-size: 24px;
+}
+
+/* Upload text */
+.upload-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.upload-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.upload-subtitle {
+    font-size: 12px;
+    color: #888;
+}
+
+/* Choose file button */
+.upload-button {
+    padding: 9px 20px;
+    border-radius: 6px;
+    background: #795b40;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.upload-box:hover .upload-button {
+    background: #5f452f;
+}
+
+/* Receipt preview */
+.receipt-preview-container {
+    display: none;
+    margin-top: 15px;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#receiptPreview {
+    display: block;
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+    border-radius: 6px;
+    background: #f7f7f7;
+}
+
+.receipt-file-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+    padding: 10px;
+    background: #faf8f5;
+    border-radius: 6px;
+    color: #795b40;
+}
+
+#receiptFileName {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 12px;
+    color: #444;
+}
+
+#removeReceipt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 6px;
+    background: #fbeaea;
+    color: #c0392b;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+#removeReceipt:hover {
+    background: #f5d4d4;
+}
+
+/* Keyboard accessibility */
+.upload-box:focus-within {
+    outline: 2px solid #795b40;
+    outline-offset: 3px;
+}
